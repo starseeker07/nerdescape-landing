@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="CodiCheck">
+  <link rel="icon" type="image/webp" href="../assets/images/opening.webp">
+  <link rel="apple-touch-icon" href="../assets/images/opening.webp">
+  <title>CodiCheck — AIファッション評価アプリ | セアがコーデを評価します</title>
+  <meta name="description" content="AIの幼馴染セアがTPOベースであなたのコーデを正直に評価。ショッピングリンクとAI修正コーデ画像も。Androidで無料ダウンロード。">
+  <meta name="keywords" content="AIファッション評価, コーデ評価アプリ, スタイル分析, コーデチェック, CodiCheck">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CodiCheck">
+  <meta property="og:title" content="CodiCheck — AIファッション評価アプリ">
+  <meta property="og:description" content="AIの幼馴染セアがあなたのコーデを正直に評価します">
+  <!-- TODO: og:image — assets/images/og-image.png 制作後に有効化
+  <meta property="og:image" content="https://starseeker07.github.io/nerdescape-landing/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://starseeker07.github.io/nerdescape-landing/assets/images/og-image.png">
+  -->
+  <meta property="og:url" content="https://starseeker07.github.io/nerdescape-landing/ja/">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:title" content="CodiCheck — AIファッション評価アプリ">
+  <meta name="twitter:description" content="AIの幼馴染セアがあなたのコーデを正直に評価します">
+
+  <link rel="alternate" hreflang="ko" href="https://starseeker07.github.io/nerdescape-landing/">
+  <link rel="alternate" hreflang="en" href="https://starseeker07.github.io/nerdescape-landing/en/">
+  <link rel="alternate" hreflang="ja" href="https://starseeker07.github.io/nerdescape-landing/ja/">
+  <link rel="alternate" hreflang="x-default" href="https://starseeker07.github.io/nerdescape-landing/">
+  <link rel="canonical" href="https://starseeker07.github.io/nerdescape-landing/ja/">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" crossorigin="anonymous"></script>
+
+  <style>
+    @font-face {
+      font-family: 'LTEnergy';
+      src: url('../assets/fonts/LTEnergy-Semi-Italic.ttf') format('truetype');
+      font-weight: 600; font-style: italic; font-display: swap;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --bg2: #111111; --bg3: #1a1a1a;
+      --text: #ffffff; --text-muted: #9ca3af; --text-subtle: #6b7280;
+      --accent: #3A86FF; --accent-end: #2563EB;
+      --border: rgba(255,255,255,0.08);
+      --font-lt: 'LTEnergy', sans-serif;
+      --font-pre: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg); color: var(--text); font-family: var(--font-pre); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,10,10,0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-lt); font-style: italic; font-size: 22px; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { display: flex; align-items: center; gap: 2px; font-size: 13px; }
+    .lang-toggle a, .lang-toggle span.active { padding: 5px 9px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .lang-toggle a { color: var(--text-muted); }
+    .lang-toggle a:hover { color: var(--text); background: rgba(255,255,255,0.07); }
+    .lang-toggle .active { color: var(--text); font-weight: 600; }
+    .lang-sep { color: rgba(255,255,255,0.15); padding: 0 2px; font-size: 11px; }
+    .btn-nav { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--accent), var(--accent-end)); color: #fff; font-family: var(--font-pre); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; }
+    .btn-nav:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .hero { position: relative; display: flex; min-height: 100vh; overflow: hidden; padding-top: 64px; }
+    .hero-left { position: relative; z-index: 2; width: 50%; display: flex; flex-direction: column; justify-content: center; padding: 80px 60px 80px 80px; }
+    .hero-app-name { font-family: var(--font-lt); font-style: italic; font-size: 72px; font-weight: 600; line-height: 1; letter-spacing: -2px; margin-bottom: 16px; }
+    .hero-subtitle { font-size: 18px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.2px; margin-bottom: 8px; }
+    .hero-tagline { font-size: 14px; font-style: italic; color: var(--text-subtle); margin-bottom: 40px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent), var(--accent-end)); color: #fff; font-family: var(--font-pre); font-size: 16px; font-weight: 600; padding: 17px 28px; border-radius: 14px; align-self: flex-start; box-shadow: 0 4px 24px rgba(58,134,255,0.35); transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .btn-cta:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(58,134,255,0.5); }
+    .hero-note { margin-top: 12px; font-size: 12px; color: var(--text-subtle); }
+
+    .hero-right { position: absolute; right: 0; top: 0; bottom: 0; width: 54%; overflow: hidden; }
+    .hero-fade-left { position: absolute; left: 0; top: 0; bottom: 0; width: 46%; background: linear-gradient(to right, var(--bg) 20%, transparent 100%); z-index: 2; pointer-events: none; }
+    .hero-fade-bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 25%; background: linear-gradient(to bottom, transparent 0%, var(--bg) 100%); z-index: 2; pointer-events: none; }
+    .grid-wrap { position: absolute; inset: -10%; transform: rotate(12deg) scale(1.18); }
+    .grid-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; height: 100%; }
+    .grid-col { display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+    .col-a .col-inner { animation: scrollUp 80s linear infinite; }
+    .col-b .col-inner { animation: scrollDown 80s linear infinite; }
+    .col-c .col-inner { animation: scrollUp 80s linear infinite; margin-top: -12%; }
+    @keyframes scrollUp { from { transform: translateY(0); } to { transform: translateY(-33.333%); } }
+    @keyframes scrollDown { from { transform: translateY(-33.333%); } to { transform: translateY(0); } }
+    .col-inner { display: flex; flex-direction: column; gap: 16px; }
+    .grid-card { border-radius: 14px; overflow: hidden; flex-shrink: 0; aspect-ratio: 9/16; background: var(--bg3); }
+    .grid-card img { width: 100%; height: 100%; object-fit: cover; }
+
+    .section-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .section-title { font-size: 50px; font-weight: 700; line-height: 1.18; letter-spacing: -0.6px; }
+
+    .seah-wrap { background: var(--bg2); }
+    .seah-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 100px 80px; }
+    .seah-img-frame { position: relative; border-radius: 28px; overflow: hidden; }
+    .seah-img-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg2) 0%, transparent 35%); }
+    .seah-img-frame img { width: 100%; display: block; }
+    .seah-title { font-size: 40px; font-weight: 700; line-height: 1.22; letter-spacing: -0.4px; margin-bottom: 24px; }
+    .seah-body { font-size: 17px; line-height: 1.85; color: var(--text-muted); }
+    .seah-body p + p { margin-top: 16px; }
+
+    .how-outer { max-width: 1200px; margin: 0 auto; padding: 100px 80px; }
+    .how-header { margin-bottom: 56px; }
+    .steps-grid { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 20px; align-items: start; }
+    .step-card { background: var(--bg2); border-radius: 22px; border: 1px solid var(--border); overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+    .step-card:hover { transform: translateY(-6px); border-color: rgba(58,134,255,0.25); }
+    .step-card:nth-child(2) { margin-top: -28px; }
+    .step-img { overflow: hidden; background: var(--bg3); max-height: 320px; }
+    .step-img img { width: 100%; height: 320px; object-fit: cover; object-position: top; }
+    .step-body { padding: 24px 26px 28px; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-end)); font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+    .step-title { font-size: 20px; font-weight: 700; letter-spacing: -0.2px; margin-bottom: 10px; }
+    .step-desc { font-size: 15px; line-height: 1.75; color: var(--text-muted); }
+
+    .features-wrap { background: var(--bg2); padding: 100px 0 120px; }
+    .features-outer { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+    .features-header { margin-bottom: 80px; }
+    .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; }
+    .feature-row:last-child { margin-bottom: 0; }
+    .feat-icon { font-size: 34px; color: var(--accent); margin-bottom: 18px; display: flex; }
+    .feat-title { font-size: 36px; font-weight: 700; line-height: 1.22; letter-spacing: -0.4px; margin-bottom: 16px; }
+    .feat-desc { font-size: 17px; line-height: 1.85; color: var(--text-muted); }
+    .feat-mockup-area { display: flex; justify-content: center; align-items: center; position: relative; }
+    .feat-mockup-area::before { content: ''; position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(58,134,255,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .phone { position: relative; width: 240px; border-radius: 40px; border: 6px solid rgba(255,255,255,0.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), inset 0 0 0 2px rgba(0,0,0,0.4), 0 40px 80px rgba(0,0,0,0.65), 0 8px 16px rgba(0,0,0,0.3); overflow: hidden; transform: rotate(-4deg) translateY(-8px); transition: transform 0.4s ease, box-shadow 0.4s ease; z-index: 1; background: #050505; }
+    .phone:hover { transform: rotate(0deg) translateY(0px); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), inset 0 0 0 2px rgba(0,0,0,0.4), 0 24px 48px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.2); }
+    .phone.tilt-left { transform: rotate(4deg) translateY(-8px); }
+    .phone.tilt-left:hover { transform: rotate(0deg) translateY(0px); }
+    .phone::before { content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 80px; height: 26px; border-radius: 20px; background: #000; z-index: 3; box-shadow: 0 0 0 1px rgba(255,255,255,0.06); }
+    .phone-screen { aspect-ratio: 9/19.5; overflow: hidden; background: #000; }
+    .phone-screen img { width: 100%; height: 100%; object-fit: cover; }
+    .dual-phones { display: flex; position: relative; align-items: flex-start; }
+    .dual-phones .phone:first-child { transform: rotate(-5deg) translateY(-10px); z-index: 2; }
+    .dual-phones .phone:first-child:hover { transform: rotate(0deg) translateY(0); }
+    .dual-phones .phone:last-child { transform: rotate(5deg) translateY(10px); margin-left: -20px; }
+    .dual-phones .phone:last-child:hover { transform: rotate(0deg) translateY(0); }
+
+    .cta-outer { max-width: 1200px; margin: 0 auto; padding: 100px 80px; }
+    .cta-card { background: linear-gradient(135deg, #0e1d36 0%, #091428 100%); border: 1px solid rgba(58,134,255,0.18); border-radius: 32px; display: grid; grid-template-columns: 1.3fr 1fr; overflow: hidden; position: relative; }
+    .cta-card::before { content: ''; position: absolute; top: -120px; left: -80px; width: 480px; height: 480px; background: radial-gradient(circle, rgba(58,134,255,0.1) 0%, transparent 70%); pointer-events: none; }
+    .cta-content { padding: 72px; position: relative; z-index: 1; }
+    .cta-title { font-size: 48px; font-weight: 700; letter-spacing: -0.6px; line-height: 1.18; margin-bottom: 16px; }
+    .cta-sub { font-size: 19px; color: var(--text-muted); margin-bottom: 40px; line-height: 1.6; }
+    .cta-note { margin-top: 14px; font-size: 13px; color: var(--text-subtle); }
+    .cta-img { overflow: hidden; display: flex; align-items: flex-end; }
+    .cta-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+    .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 56px 80px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 20px; }
+    .footer-lang { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+    .footer-lang a { color: var(--text-muted); padding: 4px 8px; border-radius: 5px; transition: color 0.2s; }
+    .footer-lang a:hover { color: var(--text); }
+    .footer-lang .active { color: var(--text); font-weight: 600; padding: 4px 8px; }
+    .footer-lang .sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+    .footer-links { display: flex; gap: 24px; font-size: 13px; margin-bottom: 28px; }
+    .footer-links a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-biz { font-size: 12px; color: var(--text-subtle); line-height: 2; padding-top: 24px; border-top: 1px solid var(--border); margin-bottom: 20px; }
+    .footer-copy { font-size: 12px; color: var(--text-subtle); }
+
+    [data-animate] { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    [data-animate].visible { opacity: 1; transform: translateY(0); }
+    [data-delay="1"] { transition-delay: 0.1s; }
+    [data-delay="2"] { transition-delay: 0.2s; }
+    [data-delay="3"] { transition-delay: 0.3s; }
+
+    @media (max-width: 1024px) {
+      .hero-left { padding: 60px 40px 60px 48px; }
+      .hero-app-name { font-size: 64px; }
+      .seah-inner { gap: 48px; padding: 80px 48px; }
+      .how-outer { padding: 80px 48px; }
+      .features-outer { padding: 0 48px; }
+      .feat-title { font-size: 28px; }
+      .cta-outer { padding: 80px 48px; }
+      .footer { padding: 48px 48px; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; height: 56px; }
+      .btn-nav .btn-nav-text { display: none; }
+      .hero { padding-top: 56px; min-height: 100svh; }
+      .hero-left { width: 100%; padding: 72px 24px 56px; justify-content: flex-end; min-height: 100svh; z-index: 2; }
+      .hero-app-name { font-size: 52px; letter-spacing: -1px; }
+      .hero-subtitle { font-size: 16px; }
+      .hero-right { position: absolute; width: 100%; inset: 0; }
+      .hero-fade-left { width: 100%; background: linear-gradient(to top, var(--bg) 0%, var(--bg) 30%, rgba(10,10,10,0.7) 55%, transparent 100%); }
+      .hero-fade-bottom { display: none; }
+      .btn-cta { font-size: 15px; padding: 15px 22px; align-self: stretch; justify-content: center; }
+      .seah-inner { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px; }
+      .seah-title { font-size: 30px; }
+      .seah-body { font-size: 15px; }
+      .section-title { font-size: 36px; }
+      .how-outer { padding: 56px 24px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+      .step-card:nth-child(2) { margin-top: 0; }
+      .step-title { font-size: 18px; }
+      .features-wrap { padding: 56px 0 72px; }
+      .features-outer { padding: 0 24px; }
+      .feature-row { display: flex; flex-direction: column-reverse; gap: 32px; margin-bottom: 64px; }
+      .feature-row.feat-reverse { display: flex; flex-direction: column-reverse; }
+      .feat-title { font-size: 28px; }
+      .feat-desc { font-size: 15px; }
+      .features-header { margin-bottom: 44px; }
+      .phone { width: 200px; }
+      .dual-phones .phone { width: 170px; }
+      .cta-outer { padding: 56px 20px; }
+      .cta-card { grid-template-columns: 1fr; border-radius: 24px; }
+      .cta-img { display: none; }
+      .cta-content { padding: 40px 28px; }
+      .cta-title { font-size: 34px; }
+      .cta-sub { font-size: 16px; }
+      .cta-content .btn-cta { align-self: stretch; justify-content: center; }
+      .footer { padding: 36px 20px; }
+      .footer-top { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+      .footer-biz { font-size: 11px; }
+    }
+    @media (max-width: 400px) {
+      .hero-app-name { font-size: 44px; }
+      .section-title { font-size: 30px; }
+      .feat-title { font-size: 24px; }
+      .cta-title { font-size: 28px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CodiCheck",
+    "alternateName": "コーデチェック",
+    "operatingSystem": "Android",
+    "applicationCategory": "LifestyleApplication",
+    "description": "AIの幼馴染セアがTPOベースであなたのコーデを正直に評価するアプリ。ショッピングリンク、AI修正コーデ画像を提供。",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "installUrl": "https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape",
+    "author": { "@type": "Organization", "name": "CodiCheck" }
+  }
+  </script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">CodiCheck</a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <a href="/">한국어</a>
+      <span class="lang-sep">|</span>
+      <a href="/en/">English</a>
+      <span class="lang-sep">|</span>
+      <span class="active">日本語</span>
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
+       class="btn-nav" target="_blank" rel="noopener">
+      <iconify-icon icon="solar:download-bold" style="font-size:15px"></iconify-icon>
+      <span class="btn-nav-text">ダウンロード</span>
+    </a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left" data-animate>
+    <h1 class="hero-app-name">CodiCheck</h1>
+    <p class="hero-subtitle">ぼっちのためのAIファッション評価</p>
+    <p class="hero-tagline">幼馴染のセアがあなたのコーデを評価します</p>
+    <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
+       class="btn-cta" target="_blank" rel="noopener">
+      <iconify-icon icon="solar:play-bold" style="font-size:18px"></iconify-icon>
+      Google Playでダウンロード
+    </a>
+    <p class="hero-note">Android専用 · 無料インストール</p>
+  </div>
+
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-fade-left"></div>
+    <div class="hero-fade-bottom"></div>
+    <div class="grid-wrap">
+      <div class="grid-cols">
+        <div class="grid-col col-a"><div class="col-inner">
+          <div class="grid-card"><img src="../assets/reels/reel_01.webp" alt="" loading="eager" width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_02.webp" alt="" loading="eager" width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_03.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_04.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_05.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_06.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_07.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_08.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_01.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_02.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_03.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_04.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_05.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_06.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_07.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_08.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_01.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_02.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_03.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_04.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_05.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_06.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_07.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_08.webp" alt="" loading="lazy"  width="160" height="284"></div>
+        </div></div>
+        <div class="grid-col col-b"><div class="col-inner">
+          <div class="grid-card"><img src="../assets/reels/reel_09.webp" alt="" loading="eager" width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_10.webp" alt="" loading="eager" width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_11.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_12.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_13.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_14.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_15.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_16.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_09.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_10.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_11.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_12.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_13.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_14.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_15.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_16.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_09.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_10.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_11.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_12.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_13.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_14.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_15.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_16.webp" alt="" loading="lazy"  width="160" height="284"></div>
+        </div></div>
+        <div class="grid-col col-c"><div class="col-inner">
+          <div class="grid-card"><img src="../assets/reels/reel_17.webp" alt="" loading="eager" width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_18.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_19.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_20.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_21.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_22.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_23.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_24.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_17.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_18.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_19.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_20.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_21.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_22.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_23.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_24.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_17.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_18.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_19.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_20.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_21.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_22.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_23.webp" alt="" loading="lazy"  width="160" height="284"></div>
+          <div class="grid-card"><img src="../assets/reels/reel_24.webp" alt="" loading="lazy"  width="160" height="284"></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seah-wrap">
+  <div class="seah-inner">
+    <div class="seah-img-frame" data-animate>
+      <img src="../assets/images/tutorial_slide_1.webp" alt="AIの幼馴染セア" loading="lazy" width="400" height="500">
+    </div>
+    <div data-animate data-delay="2">
+      <span class="section-tag">セアについて</span>
+      <h2 class="seah-title">正直すぎるAIの<br>幼馴染、セア</h2>
+      <div class="seah-body">
+        <p>セアはファッションに真剣なAIの幼馴染です。<br>
+           空気を読まずにストレートに、時に辛口でも—<br>
+           でもそれは全部、本気のコーデ評価だから。</p>
+        <p>気分のいい嘘より、ちょっと痛い本音の方が役に立つって、<br>
+           セアはよく知ってるんです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="how-outer">
+    <div class="how-header" data-animate>
+      <span class="section-tag">使い方</span>
+      <h2 class="section-title">3ステップで完結</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-animate data-delay="1">
+        <div class="step-img"><img src="../assets/screenshots/ja/tpo-selection.jpg" alt="コーデ写真を送る" loading="lazy" width="300" height="320"></div>
+        <div class="step-body">
+          <div class="step-num">1</div>
+          <h3 class="step-title">コーデ写真を送ってください</h3>
+          <p class="step-desc">今日のコーデ写真を撮影、またはギャラリーから選びましょう。TPO（シーン）を設定すれば準備完了です。</p>
+        </div>
+      </div>
+      <div class="step-card" data-animate data-delay="2">
+        <div class="step-img"><img src="../assets/screenshots/ja/chat-evaluation.jpg" alt="AI分析" loading="lazy" width="300" height="320"></div>
+        <div class="step-body">
+          <div class="step-num">2</div>
+          <h3 class="step-title">セアがAIでコーデを分析します</h3>
+          <p class="step-desc">Gemini AIを使って、TPO適合性・体型・色合わせ・フィット感を総合評価。セアらしいズバリ直球スタイルで採点と詳細フィードバックをお届けします。</p>
+        </div>
+      </div>
+      <div class="step-card" data-animate data-delay="3">
+        <div class="step-img"><img src="../assets/screenshots/ja/shopping-links.jpg" alt="ショッピングリンク" loading="lazy" width="300" height="320"></div>
+        <div class="step-body">
+          <div class="step-num">3</div>
+          <h3 class="step-title">改善アドバイスとショッピングリンクをもらおう</h3>
+          <p class="step-desc">具体的な改善アドバイスと、おすすめのショッピングリンクを提供します。有料チケットを使い、3.0点未満の評価を受けた場合は、AIが修正したコーデ画像も一緒に受け取れます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-wrap">
+  <div class="features-outer">
+    <div class="features-header" data-animate>
+      <span class="section-tag">主な機能</span>
+      <h2 class="section-title">CodiCheckが<br>特別な理由</h2>
+    </div>
+
+    <div class="feature-row">
+      <div data-animate>
+        <div class="feat-icon"><iconify-icon icon="solar:map-point-bold"></iconify-icon></div>
+        <h3 class="feat-title">TPOに合った<br>本物のコーデ評価</h3>
+        <p class="feat-desc">デート、面接、旅行…シーンに合ったコーデかどうかが重要です。14種類のTPOカテゴリから選ぶだけで、そのシーンに最適化されたAI評価が受けられます。</p>
+      </div>
+      <div class="feat-mockup-area" data-animate data-delay="2">
+        <div class="phone">
+          <div class="phone-screen"><img src="../assets/screenshots/ja/tpo-selection.jpg" alt="TPO対応AI評価" loading="lazy" width="240" height="520"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-row feat-reverse">
+      <div class="feat-mockup-area" data-animate data-delay="2">
+        <div class="phone tilt-left">
+          <div class="phone-screen"><img src="../assets/screenshots/ja/shopping-links.jpg" alt="フィードバックとショッピングリンク" loading="lazy" width="240" height="520"></div>
+        </div>
+      </div>
+      <div data-animate>
+        <div class="feat-icon"><iconify-icon icon="solar:chat-round-bold"></iconify-icon></div>
+        <h3 class="feat-title">本音のフィードバック<br>＋ショッピングリンク</h3>
+        <p class="feat-desc">「似合ってるよ」なんて曖昧な言葉はありません。何が問題でなぜダメなのか、どう直せばいいのか具体的に教えてくれます。さらに、改善にぴったりのアイテムをセアが直接選んでショッピングリンクで送ってくれます。</p>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div data-animate>
+        <div class="feat-icon"><iconify-icon icon="solar:magic-stick-bold"></iconify-icon></div>
+        <h3 class="feat-title">アドバイスを<br>画像で確認しよう</h3>
+        <p class="feat-desc">有料チケットを使い、3.0点未満の評価を受けると、セアのアドバイス通りに修正されたコーデ画像が届きます。百聞は一見にしかず。</p>
+      </div>
+      <div class="feat-mockup-area" data-animate data-delay="2">
+        <div class="phone">
+          <div class="phone-screen"><img src="../assets/screenshots/ja/edited-outfit.jpg" alt="AI修正コーデ" loading="lazy" width="240" height="520"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-row feat-reverse">
+      <div class="feat-mockup-area" data-animate data-delay="2">
+        <div class="dual-phones">
+          <div class="phone"><div class="phone-screen"><img src="../assets/screenshots/ja/illustration-detail.jpg" alt="セアイラスト詳細" loading="lazy" width="240" height="520"></div></div>
+          <div class="phone"><div class="phone-screen"><img src="../assets/screenshots/ja/gallery-overview.jpg" alt="セアイラストギャラリー" loading="lazy" width="240" height="520"></div></div>
+        </div>
+      </div>
+      <div data-animate>
+        <div class="feat-icon"><iconify-icon icon="solar:gallery-bold"></iconify-icon></div>
+        <h3 class="feat-title">評価のたびに<br>セアのイラストが</h3>
+        <p class="feat-desc">コーデ評価の結果に応じて、セアの特別なイラストが手に入ることも。全113種類、さまざまなグレードのイラストが用意されています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-outer">
+  <div class="cta-card" data-animate>
+    <div class="cta-content">
+      <h2 class="cta-title">今すぐセアに<br>評価してもらおう</h2>
+      <p class="cta-sub">今日のコーデ、正直な一言が欲しくないですか？</p>
+      <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
+         class="btn-cta" target="_blank" rel="noopener">
+        <iconify-icon icon="solar:play-bold" style="font-size:18px"></iconify-icon>
+        Google Playで無料ダウンロード
+      </a>
+      <p class="cta-note">Android専用 · 無料インストール</p>
+    </div>
+    <div class="cta-img">
+      <img src="../assets/images/seah_profile.webp" alt="セア" loading="lazy" width="400" height="520">
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-logo">CodiCheck</span>
+      <div class="footer-lang">
+        <a href="/">한국어</a>
+        <span class="sep">|</span>
+        <a href="/en/">English</a>
+        <span class="sep">|</span>
+        <span class="active">日本語</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="/ja/privacy.html">プライバシーポリシー</a>
+      <a href="/ja/terms.html">利用規約</a>
+    </div>
+    <div class="footer-biz">
+      商号: OOO株式会社 &nbsp;|&nbsp; 代表者: 홍길동 &nbsp;|&nbsp; 事業者登録番号: 000-00-00000<br>
+      通信販売業申告番号: 제0000-서울OO-0000호<br>
+      所在地: 서울특별시 OO구 OO로 00, OO호<br>
+      お問い合わせ: <span id="contact-email"></span>
+    </div>
+    <p class="footer-copy">© 2026 CodiCheck. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contact-email').textContent = ['contact', 'codicheck.app'].join('@');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
