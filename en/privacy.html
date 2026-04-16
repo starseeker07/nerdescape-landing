@@ -14,72 +14,145 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #0a0a0a; --bg2: #111111; --text: #ffffff; --text-muted: #9ca3af; --text-subtle: #6b7280; --accent: #3A86FF; --border: rgba(255,255,255,0.08); --font-lt: 'LTEnergy', sans-serif; --font-pre: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-pre); line-height: 1.7; }
-    a { color: var(--accent); }
+    a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
     .nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,10,10,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--font-lt); font-style: italic; font-size: 20px; color: var(--text); text-decoration: none; }
-    .nav-back { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; transition: color 0.2s; text-decoration: none; }
-    .nav-back:hover { color: var(--text); }
-    .content { max-width: 720px; margin: 0 auto; padding: 72px 48px 120px; }
-    h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
-    .last-updated { font-size: 13px; color: var(--text-subtle); margin-bottom: 56px; }
-    h2 { font-size: 20px; font-weight: 700; margin: 40px 0 14px; }
-    p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
-    ul { padding-left: 20px; margin-bottom: 14px; }
-    li { font-size: 15px; color: var(--text-muted); margin-bottom: 6px; }
-    .placeholder-notice { background: rgba(58,134,255,0.08); border: 1px solid rgba(58,134,255,0.2); border-radius: 10px; padding: 20px 24px; font-size: 14px; color: var(--text-muted); margin-bottom: 40px; }
+    .hi { color: var(--accent); }
+    .nav-logo { font-family: var(--font-lt); font-style: italic; font-size: 26px; letter-spacing: -0.3px; color: var(--text); }
+    .nav-back { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); text-decoration: none; }
+    .content { max-width: 800px; margin: 0 auto; padding: 72px 48px 120px; }
+    h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; line-height: 1.3; }
+    .meta { font-size: 13px; color: var(--text-subtle); margin-bottom: 12px; }
+    .intro { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    h2 { font-size: 20px; font-weight: 700; margin: 44px 0 16px; }
+    p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+    ul { padding-left: 22px; margin-bottom: 16px; }
+    li { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.75; }
+    .note { font-size: 13px; color: var(--text-subtle); font-style: italic; margin: 12px 0; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 28px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: rgba(255,255,255,0.06); color: var(--text); font-weight: 600; padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); vertical-align: top; line-height: 1.65; }
+    tr:last-child td { border-bottom: none; }
     .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 48px; }
-    .footer-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 18px; }
+    .footer-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 26px; }
     .footer-copy { font-size: 12px; color: var(--text-subtle); }
-    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 24px 80px; } h1 { font-size: 28px; } .footer { padding: 32px 24px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
+    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 20px 80px; } h1 { font-size: 26px; } .footer { padding: 32px 20px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
   </style>
 </head>
 <body>
+
 <nav class="nav">
-  <a href="/en/" class="nav-logo">CodiCheck</a>
+  <a href="/en/" class="nav-logo"><span class="hi">Codi</span>Check</a>
   <a href="/en/" class="nav-back">← Back to Home</a>
 </nav>
+
 <div class="content">
-  <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: April 15, 2026</p>
-  <div class="placeholder-notice">This page is a placeholder. Please replace with actual content after legal review.</div>
-  <h2>1. Data Controller</h2>
-  <p>OOO Corp. ("Company") operates the CodiCheck service ("Service") and is committed to protecting your personal data in accordance with applicable laws.</p>
-  <h2>2. Data We Collect</h2>
+  <h1>🔒 Privacy Policy</h1>
+  <!-- TODO: Update date after launch -->
+  <p class="meta">Last Updated: 2026 &nbsp;&nbsp;|&nbsp;&nbsp; Effective Date: 2026</p>
+
+  <div class="intro">
+    Solo developer kukuDev ("Operator") takes the privacy of users ("you") of the CodiCheck mobile application ("App" or "Service") very seriously. This Privacy Policy describes how I collect, use, disclose, and protect your information. By using the Service, you consent to the practices described in this Privacy Policy.
+  </div>
+
+  <h2>1. Information We Collect and Purpose of Use</h2>
+  <p>The Service strictly requires a login to function. We collect the minimum necessary data to provide seamless AI fashion evaluations as follows:</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Collected Information</th><th>Purpose of Use</th><th>Retention Period</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Account Data</strong></td><td>Email address, Firebase UID, Authentication Provider (Google)</td><td>Account creation, user identification, and login management</td><td>Deleted immediately upon account deletion</td></tr>
+        <tr><td><strong>Profile Data</strong></td><td>Nickname</td><td>Used to address you in the private 1:1 chat with the AI</td><td>Deleted immediately upon account deletion</td></tr>
+        <tr><td><strong>Body Profile</strong></td><td>Age, Height, Weight, Body Shape, Gender</td><td>To provide accurate, personalized AI fashion evaluations based on your body type</td><td>Deleted immediately upon account deletion</td></tr>
+        <tr><td><strong>User Content</strong></td><td>Outfit Photos</td><td>AI fashion analysis and restyled outfit image generation</td><td>Deleted immediately from servers after AI processing is complete</td></tr>
+        <tr><td><strong>Device/Usage Logs</strong></td><td>Device model, OS version, App crash logs</td><td>Service stability improvement and error (bug) fixing</td><td>According to Firebase Crashlytics policy</td></tr>
+        <tr><td><strong>Terms Consent Data</strong></td><td>Consent to Terms of Service and Privacy Policy</td><td>Legal proof of consent to the Terms and Policy</td><td>Retained for 5 years from the time of consent in accordance with relevant laws</td></tr>
+        <tr><td><strong>Purchase Data</strong></td><td>In-app purchase history (Product ID, Platform), Purchase Token, Order/Transaction ID, Purchase timestamp</td><td>Validation of in-app purchases, product fulfillment, fraud prevention, and handling refunds/inquiries</td><td>Retained for 5 years from the time of purchase in accordance with relevant laws</td></tr>
+        <tr><td><strong>Styling Ticket Usage History</strong></td><td>Styling ticket (both free and paid) usage and deduction history</td><td>Processing refunds, preventing fraudulent use, and handling customer inquiries</td><td>Retained for 5 years from the time of use, then destroyed in accordance with relevant laws</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2. Sharing and Disclosure of Information</h2>
+  <p>The Operator may share or disclose your personal information only in the following cases:</p>
+  <p><strong>2.1. With Your Consent:</strong> When you have explicitly consented to share your personal information.</p>
+  <p><strong>2.2. Service Providers:</strong> We may share information with the following third-party service providers to support our business operations. These providers can only access information to the extent necessary to perform services on our behalf and are subject to strict confidentiality obligations:</p>
   <ul>
-    <li>Account information: email address, nickname</li>
-    <li>Service usage data: uploaded images, usage logs, payment information</li>
-    <li>Device information: device identifier, OS version, app version</li>
+    <li>Google Gemini API: Sends uploaded outfit photos and your body profile information for outfit analysis and image generation.</li>
+    <li>Google Firebase: Provides core service infrastructure, including user authentication, databases (Firestore, Storage), server hosting (Functions), and crash reporting (Crashlytics).</li>
+    <li>Google Play: Sends purchase receipt data and order information to process in-app purchases, validate receipts, and handle refunds.</li>
+    <li>Google AdMob: Serves advertisements.</li>
   </ul>
-  <h2>3. Purpose of Data Collection</h2>
-  <ul>
-    <li>Providing and improving the Service</li>
-    <li>Customer support</li>
-    <li>Payment processing and refunds</li>
-    <li>Legal compliance</li>
-  </ul>
-  <h2>4. Data Retention</h2>
-  <p>Your data is deleted upon account termination, except where retention is required by law.</p>
-  <h2>5. Third-Party Sharing</h2>
-  <p>We do not share your personal data with third parties except as required by law or with your consent.</p>
-  <h2>6. Sub-processors</h2>
-  <ul>
-    <li>Google LLC: authentication, payment processing</li>
-    <li>Google Firebase: server operations, data storage</li>
-  </ul>
-  <h2>7. Your Rights</h2>
-  <p>You may request access, correction, deletion, or restriction of processing of your personal data at any time. Contact us at the email below.</p>
-  <h2>8. Data Protection Officer</h2>
-  <p>Email: <span id="privacy-email"></span></p>
-  <h2>9. Changes to This Policy</h2>
-  <p>This policy may be updated to reflect changes in law or our services. We will notify you of material changes via the app or email.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Third Party</th><th>Shared Information</th><th>Purpose of Sharing</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Google LLC (Gemini API)</td><td>Outfit Photos (EXIF stripped), Body Profile Data</td><td>AI fashion evaluation and restyled image generation</td></tr>
+        <tr><td>Google LLC (Firebase)</td><td>Email, UID, Usage Logs, Crash Logs</td><td>Backend infrastructure provision (Auth, Database, Server error analysis)</td></tr>
+        <tr><td>Google LLC (Google Play)</td><td>Purchase Token / Receipt Data, Order ID, Purchased product info</td><td>In-app purchase processing, receipt validation, and refund handling</td></tr>
+        <tr><td>Google LLC (AdMob)</td><td>Device ID, Ad interaction data</td><td>Serving personalized and non-personalized ads</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">※ Note: The shopping links (Coupang, Amazon, etc.) provided in the App are generated solely based on 'general search keywords' derived from your fashion evaluation. No personally identifiable information is transmitted to these shopping platforms.</p>
+  <p><strong>2.3. Legal Requirements:</strong> When required by law, regulation, or legal process (e.g., court order or subpoena), or when deemed necessary to protect the rights, property, or safety of the Operator.</p>
+  <p><strong>2.4. Business Transfers:</strong> Your information may be transferred in connection with a business transaction such as a merger, acquisition, asset sale, or bankruptcy.</p>
+  <p><strong>2.5. Anonymized or Aggregated Information:</strong> We may share anonymized or aggregated information that cannot identify an individual with partners, researchers, or other third parties.</p>
+
+  <h2>3. Data Storage and Retention Period</h2>
+  <p><strong>3.1. Server Storage and Local Chat History:</strong> The Operator stores your account and body profile information on the server while your account is active. However, your chat history with the AI "Seah" is never stored on the server; it is stored locally on your device in an encrypted database (SQLCipher).</p>
+  <p><strong>3.2. Data Deletion:</strong> If you delete your account, all personally identifiable information stored on the server will be permanently deleted without delay, except where required by applicable laws. The chat data stored locally is destroyed when the App is uninstalled.</p>
+  <p><strong>3.3. Legal Retention:</strong> To comply with legal obligations, the following information is retained for a specified period after account deletion. It will be permanently destroyed automatically when the retention period expires.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Retained Item</th><th>Retention Period</th><th>Legal Basis</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Records of consent to Terms and Privacy Policy</td><td>5 years from the time of consent</td><td>Act on the Consumer Protection in Electronic Commerce, etc. (South Korea)</td></tr>
+        <tr><td>Payment records (Product ID, Platform, Purchase Token, Order ID, Timestamp)</td><td>5 years from the time of purchase</td><td>Act on the Consumer Protection in Electronic Commerce, etc. (South Korea)</td></tr>
+        <tr><td>Styling ticket (free/paid) usage history</td><td>5 years from the time of use</td><td>Act on the Consumer Protection in Electronic Commerce, etc. (South Korea)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4. Data Security</h2>
+  <p>The Operator implements reasonable security measures to protect your personal information. This includes automatically destroying metadata (such as EXIF location data) before photo upload, blocking unauthorized access via Firebase App Check, data transmission encryption (HTTPS), and local database encryption. However, because no internet transmission method is 100% secure, absolute security cannot be guaranteed.</p>
+
+  <h2>5. Your Rights</h2>
+  <p>You have the following rights regarding your personal information:</p>
+  <p><strong>5.1. Access and Correction:</strong> You have the right to access and correct your account information. Please note that nicknames cannot be changed once set, so choose carefully.</p>
+  <p><strong>5.2. Deletion:</strong> You can permanently delete your personally identifiable information by withdrawing your membership (Delete Account). Upon deletion, all data including account info, profile, body info, evaluation history, and unlocked illustrations will be irreversibly deleted immediately. However, in accordance with relevant laws, records of consent, payments, and styling ticket (free and paid) usage histories will be retained for 5 years from the time of creation or use, and destroyed automatically thereafter.</p>
+  <p><strong>5.3. Notification Settings:</strong> You can freely control notifications for Free Ticket recharges via the in-app settings menu. This App does not send marketing notifications.</p>
+
+  <h2>6. Children's Privacy</h2>
+  <p>The Service is not intended for children under 16. The Operator does not knowingly collect personally identifiable information from children under 16. If we become aware that a child under 16 has provided personal information, we will take steps to delete such information from our records.</p>
+
+  <h2>7. International Data Transfer</h2>
+  <p>Your information may be stored and processed on computers located outside of your country, province, state, or other governmental jurisdiction. If you reside outside the Republic of Korea, please be aware that the data protection laws governing the Operator's collection, transfer, and processing of information may differ from those in your jurisdiction. By agreeing to this Privacy Policy and submitting your information, you consent to this transfer. The Operator will take all reasonably necessary steps to ensure your data is treated securely in accordance with this Privacy Policy.</p>
+
+  <h2>8. Changes to this Privacy Policy</h2>
+  <p>The Operator may update this Privacy Policy from time to time. If there are material changes, we will notify you at least 30 days before they take effect via an in-app notice, email, or other reasonable methods. Minor changes (e.g., typo corrections) may be updated without separate notice. Please periodically check the "Last Updated" date at the top of this page.</p>
+
+  <h2>9. Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy, please contact us via email: <span id="contact-email"></span></p>
 </div>
+
 <footer class="footer">
   <div class="footer-inner">
-    <span class="footer-logo">CodiCheck</span>
+    <span class="footer-logo"><span class="hi">Codi</span>Check</span>
     <span class="footer-copy">© 2026 CodiCheck. All rights reserved.</span>
   </div>
 </footer>
-<script>document.getElementById('privacy-email').textContent = ['contact', 'codicheck.app'].join('@');</script>
+
+<script>
+  document.getElementById('contact-email').textContent = ['orion400000', 'gmail.com'].join('@');
+</script>
 </body>
 </html>

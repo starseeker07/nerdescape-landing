@@ -7,14 +7,14 @@
   <meta name="author" content="CodiCheck">
   <link rel="icon" type="image/webp" href="assets/images/opening.webp">
   <link rel="apple-touch-icon" href="assets/images/opening.webp">
-  <title>CodiCheck — AI 코디 평가 앱 | 소꿉친구 세아가 패션을 평가합니다</title>
+  <title>CodiCheck — 찐따를 위한 AI 코디 평가 앱</title>
   <meta name="description" content="AI 소꿉친구 세아가 TPO 기반으로 당신의 코디를 솔직하게 평가합니다. 맞춤 쇼핑 링크, AI 수정 착장 이미지까지. Android 무료 다운로드.">
   <meta name="keywords" content="AI 코디 평가, 패션 평가 앱, 코디 평가 앱, 옷 추천 앱, 스타일 분석, CodiCheck, 코디체크, AI 패션">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="CodiCheck">
-  <meta property="og:title" content="CodiCheck — AI 코디 평가 앱">
+  <meta property="og:title" content="CodiCheck — 찐따를 위한 AI 코디 평가 앱">
   <meta property="og:description" content="AI 소꿉친구 세아가 당신의 코디를 솔직하게 평가합니다">
   <!-- TODO: og:image — assets/images/og-image.png 제작 후 활성화
   <meta property="og:image" content="https://starseeker07.github.io/nerdescape-landing/assets/images/og-image.png">
@@ -25,7 +25,7 @@
   -->
   <meta property="og:url" content="https://starseeker07.github.io/nerdescape-landing/">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:title" content="CodiCheck — AI 코디 평가 앱">
+  <meta name="twitter:title" content="CodiCheck — 찐따를 위한 AI 코디 평가 앱">
   <meta name="twitter:description" content="AI 소꿉친구 세아가 당신의 코디를 솔직하게 평가합니다">
 
   <!-- TODO: 검색엔진 인증 코드 발급 후 삽입
@@ -40,12 +40,15 @@
   <link rel="alternate" hreflang="x-default" href="https://starseeker07.github.io/nerdescape-landing/">
   <link rel="canonical" href="https://starseeker07.github.io/nerdescape-landing/">
 
+  <!-- CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://code.iconify.design; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none';">
+
   <!-- Pretendard Variable CDN -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j">
 
   <!-- Iconify Solar -->
-  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" crossorigin="anonymous"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" crossorigin="anonymous" integrity="sha384-GPb5RlngihS9H0z1D137JsvzmeZ7tCpWEF4t5YDoTZyMsPP8S7h7vFDh4XhheU83"></script>
 
   <style>
     @font-face {
@@ -80,7 +83,10 @@
       font-family: var(--font-pre);
       line-height: 1.6;
       overflow-x: hidden;
+      word-break: keep-all;
     }
+
+    h1, h2, h3, h4, h5, h6 { text-wrap: balance; word-break: keep-all; }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -104,7 +110,7 @@
     .nav-logo {
       font-family: var(--font-lt);
       font-style: italic;
-      font-size: 22px;
+      font-size: 26px;
       color: var(--text);
       letter-spacing: -0.3px;
     }
@@ -130,6 +136,26 @@
     .lang-toggle a:hover { color: var(--text); background: rgba(255,255,255,0.07); }
     .lang-toggle .active { color: var(--text); font-weight: 600; }
     .lang-sep { color: rgba(255,255,255,0.15); padding: 0 2px; font-size: 11px; }
+
+    /* ─── SECTION NAV ─── */
+    .nav-section-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-section-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-section-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
+    }
 
     .btn-nav {
       display: inline-flex;
@@ -169,48 +195,46 @@
     .hero-app-name {
       font-family: var(--font-lt);
       font-style: italic;
-      font-size: 80px;
+      font-size: 140px;
       font-weight: 600;
       color: var(--text);
-      line-height: 1;
-      letter-spacing: -2px;
-      margin-bottom: 18px;
+      line-height: 0.92;
+      letter-spacing: -4px;
+      margin-bottom: -6px;
     }
 
     .hero-subtitle {
-      font-size: 20px;
+      font-size: 32px;
       font-weight: 500;
       color: var(--text-muted);
       letter-spacing: 0.2px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero-tagline {
-      font-size: 15px;
+      font-size: 22px;
       font-style: italic;
       color: var(--text-subtle);
-      margin-bottom: 44px;
+      margin-bottom: 52px;
     }
 
     .btn-cta {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: linear-gradient(135deg, var(--accent), var(--accent-end));
       color: #fff;
       font-family: var(--font-pre);
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 600;
-      padding: 17px 28px;
-      border-radius: 14px;
+      padding: 20px 36px;
+      border-radius: 9999px;
       align-self: flex-start;
-      box-shadow: 0 4px 24px rgba(58,134,255,0.35);
-      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      transition: opacity 0.2s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn-cta:hover {
-      opacity: 0.9;
+      opacity: 0.85;
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(58,134,255,0.5);
     }
 
     .hero-note {
@@ -225,6 +249,7 @@
       right: 0; top: 0; bottom: 0;
       width: 54%;
       overflow: hidden;
+      z-index: 1;
     }
 
     .hero-fade-left {
@@ -259,9 +284,9 @@
 
     .grid-col { display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
 
-    .col-a .col-inner { animation: scrollUp 80s linear infinite; }
-    .col-b .col-inner { animation: scrollDown 80s linear infinite; }
-    .col-c .col-inner { animation: scrollUp 80s linear infinite; margin-top: -12%; }
+    .col-a .col-inner { animation: scrollUp 160s linear infinite; }
+    .col-b .col-inner { animation: scrollDown 160s linear infinite; }
+    .col-c .col-inner { animation: scrollUp 160s linear infinite; margin-top: -12%; }
 
     @keyframes scrollUp {
       from { transform: translateY(0); }
@@ -291,27 +316,59 @@
       object-fit: cover;
     }
 
+    /* ─── ACCENT HIGHLIGHT ─── */
+    .hi { color: var(--accent); }
+
     /* ─── SECTION BASE ─── */
     .section-tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 14px;
+      background: rgba(58, 134, 255, 0.1);
+      border: 1px solid rgba(58, 134, 255, 0.2);
+      padding: 5px 14px;
+      border-radius: 9999px;
+      margin-bottom: 20px;
     }
 
     .section-title {
       font-size: 50px;
       font-weight: 700;
-      line-height: 1.18;
+      line-height: 1.15;
       letter-spacing: -0.6px;
     }
 
     /* ─── SEAH INTRO ─── */
     .seah-wrap {
       background: var(--bg2);
+      position: relative;
+      overflow: hidden;
+    }
+    .seah-wrap::before {
+      content: '';
+      position: absolute;
+      top: -160px;
+      right: -120px;
+      width: 640px;
+      height: 640px;
+      background: radial-gradient(circle, rgba(58,134,255,0.09) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .seah-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      left: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(58,134,255,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     .seah-inner {
@@ -328,22 +385,21 @@
       position: relative;
       border-radius: 28px;
       overflow: hidden;
+      aspect-ratio: 1 / 1;
     }
-    .seah-img-frame::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, var(--bg2) 0%, transparent 35%);
-    }
+    .seah-img-frame::after { display: none; }
     .seah-img-frame img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
       display: block;
     }
 
     .seah-title {
       font-size: 40px;
       font-weight: 700;
-      line-height: 1.22;
+      line-height: 1.2;
       letter-spacing: -0.4px;
       margin-bottom: 24px;
     }
@@ -356,6 +412,33 @@
     .seah-body p + p { margin-top: 16px; }
 
     /* ─── HOW IT WORKS ─── */
+    #how {
+      position: relative;
+      overflow: hidden;
+    }
+    #how::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -160px;
+      transform: translateY(-50%);
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, rgba(58,134,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #how::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(58,134,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
     .how-outer {
       max-width: 1200px;
       margin: 0 auto;
@@ -376,7 +459,7 @@
       border-radius: 22px;
       border: 1px solid var(--border);
       overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
     }
     .step-card:hover {
       transform: translateY(-6px);
@@ -419,7 +502,7 @@
     }
 
     .step-desc {
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.75;
       color: var(--text-muted);
     }
@@ -428,15 +511,40 @@
     .features-wrap {
       background: var(--bg2);
       padding: 100px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .features-wrap::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: -180px;
+      width: 680px;
+      height: 680px;
+      background: radial-gradient(circle, rgba(58,134,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .features-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      left: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(58,134,255,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     .features-outer {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 80px;
+      position: relative;
     }
 
-    .features-header { margin-bottom: 80px; }
+    .features-header { margin-bottom: 32px; }
 
     .feature-row {
       display: grid;
@@ -447,23 +555,25 @@
     }
     .feature-row:last-child { margin-bottom: 0; }
 
+    .feat-text-col { }
+
     .feat-icon {
       font-size: 34px;
       color: var(--accent);
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       display: flex;
     }
 
     .feat-title {
       font-size: 36px;
       font-weight: 700;
-      line-height: 1.22;
+      line-height: 1.2;
       letter-spacing: -0.4px;
       margin-bottom: 16px;
     }
 
     .feat-desc {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.85;
       color: var(--text-muted);
     }
@@ -474,11 +584,11 @@
       align-items: center;
       position: relative;
     }
-
     .feat-mockup-area::before {
       content: '';
       position: absolute;
-      width: 300px; height: 300px;
+      width: 300px;
+      height: 300px;
       background: radial-gradient(circle, rgba(58,134,255,0.12) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
@@ -488,15 +598,12 @@
       position: relative;
       width: 240px;
       border-radius: 40px;
-      /* 외곽 프레임: 어두운 베젤 + 미묘한 하이라이트 */
       border: 6px solid rgba(255,255,255,0.08);
       box-shadow:
         inset 0 0 0 1px rgba(255,255,255,0.12),
-        inset 0 0 0 2px rgba(0,0,0,0.4),
-        0 40px 80px rgba(0,0,0,0.65),
-        0 8px 16px rgba(0,0,0,0.3);
+        0 20px 48px rgba(0,0,0,0.35),
+        0 6px 16px rgba(0,0,0,0.18);
       overflow: hidden;
-      /* Option A: 단순 2D 기울기 — 왜곡 없이 입체감 */
       transform: rotate(-4deg) translateY(-8px);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       z-index: 1;
@@ -506,9 +613,21 @@
       transform: rotate(0deg) translateY(0px);
       box-shadow:
         inset 0 0 0 1px rgba(255,255,255,0.14),
-        inset 0 0 0 2px rgba(0,0,0,0.4),
-        0 24px 48px rgba(0,0,0,0.5),
-        0 4px 12px rgba(0,0,0,0.2);
+        0 16px 36px rgba(0,0,0,0.25),
+        0 4px 10px rgba(0,0,0,0.12);
+    }
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 26px;
+      border-radius: 20px;
+      background: #000;
+      z-index: 3;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
     }
 
     .phone.tilt-left {
@@ -516,19 +635,6 @@
     }
     .phone.tilt-left:hover {
       transform: rotate(0deg) translateY(0px);
-    }
-
-    /* Dynamic Island 스타일 노치 */
-    .phone::before {
-      content: '';
-      position: absolute;
-      top: 12px; left: 50%;
-      transform: translateX(-50%);
-      width: 80px; height: 26px;
-      border-radius: 20px;
-      background: #000;
-      z-index: 3;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
     }
 
     .phone-screen {
@@ -596,15 +702,15 @@
     }
 
     .cta-title {
-      font-size: 48px;
+      font-size: 40px;
       font-weight: 700;
-      letter-spacing: -0.6px;
+      letter-spacing: -0.5px;
       line-height: 1.18;
       margin-bottom: 16px;
     }
 
     .cta-sub {
-      font-size: 19px;
+      font-size: 17px;
       color: var(--text-muted);
       margin-bottom: 40px;
       line-height: 1.6;
@@ -650,7 +756,7 @@
     .footer-logo {
       font-family: var(--font-lt);
       font-style: italic;
-      font-size: 20px;
+      font-size: 26px;
     }
 
     .footer-lang {
@@ -691,12 +797,21 @@
     [data-animate] {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      filter: blur(4px);
+      transition:
+        opacity  0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        filter   0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
     [data-animate].visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
+
+    /* hero-left는 z-index stacking context 생성 방지 — blur 제외 */
+    .hero-left[data-animate] { filter: none; }
+    .hero-left[data-animate].visible { filter: none; }
     [data-delay="1"] { transition-delay: 0.1s; }
     [data-delay="2"] { transition-delay: 0.2s; }
     [data-delay="3"] { transition-delay: 0.3s; }
@@ -705,11 +820,14 @@
     /* ─── TABLET ─── */
     @media (max-width: 1024px) {
       .hero-left { padding: 60px 40px 60px 48px; }
-      .hero-app-name { font-size: 64px; }
+      .hero-app-name { font-size: 112px; }
+      .hero-subtitle { font-size: 24px; }
+      .hero-tagline { font-size: 17px; }
       .seah-inner { gap: 48px; padding: 80px 48px; }
       .how-outer { padding: 80px 48px; }
       .features-outer { padding: 0 48px; }
       .feat-title { font-size: 28px; }
+      .phone { width: 200px; }
       .cta-outer { padding: 80px 48px; }
       .footer { padding: 48px 48px; }
     }
@@ -718,6 +836,7 @@
     @media (max-width: 768px) {
       .nav { padding: 0 20px; height: 56px; }
       .btn-nav .btn-nav-text { display: none; }
+      .nav-section-links { display: none; }
       .hero { padding-top: 56px; }
 
       /* Hero */
@@ -729,9 +848,9 @@
         min-height: 100svh;
         z-index: 2;
       }
-      .hero-app-name { font-size: 52px; letter-spacing: -1px; }
-      .hero-subtitle { font-size: 16px; }
-      .hero-tagline { font-size: 14px; }
+      .hero-app-name { font-size: 80px; letter-spacing: -2px; }
+      .hero-subtitle { font-size: 19px; }
+      .hero-tagline { font-size: 15px; }
       .hero-right {
         position: absolute;
         width: 100%;
@@ -755,15 +874,17 @@
         gap: 32px;
         padding: 56px 24px;
       }
-      .seah-title { font-size: 30px; }
-      .seah-body { font-size: 15px; }
-      .section-title { font-size: 36px; }
+      .seah-img-frame { order: 2; }
+      .seah-inner > div:last-child { order: 1; }
+      .seah-title { font-size: 26px; }
+      .seah-body { font-size: 14px; }
+      .section-title { font-size: 32px; }
 
       /* How */
       .how-outer { padding: 56px 24px; }
       .steps-grid { grid-template-columns: 1fr; gap: 16px; }
       .step-card:nth-child(2) { margin-top: 0; }
-      .step-title { font-size: 18px; }
+      .step-title { font-size: 16px; }
 
       /* Features */
       .features-wrap { padding: 56px 0 72px; }
@@ -773,28 +894,33 @@
         gap: 32px;
         margin-bottom: 64px;
       }
-      /* 모바일: 목업은 항상 위, 텍스트는 아래 */
+      /* 모바일: 텍스트 → 이미지 순서 */
       .feature-row {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
       }
       .feature-row.feat-reverse {
         display: flex;
         flex-direction: column-reverse;
       }
-      .feat-title { font-size: 28px; }
-      .feat-desc { font-size: 15px; }
+      .feat-title { font-size: 24px; }
+      .feat-desc { font-size: 14px; }
       .features-header { margin-bottom: 44px; }
       .phone { width: 200px; }
       .dual-phones .phone { width: 170px; }
+      .feature-row { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+      .feature-row.feat-reverse { grid-template-columns: 1fr; }
+      .feature-row > .feat-mockup-area,
+      .feature-row.feat-reverse > .feat-mockup-area { justify-content: center; }
 
       /* CTA */
       .cta-outer { padding: 56px 20px; }
       .cta-card { grid-template-columns: 1fr; border-radius: 24px; }
-      .cta-img { display: none; }
+      .cta-img { display: flex; max-height: 320px; }
+      .cta-img img { object-position: top center; }
       .cta-content { padding: 40px 28px; }
-      .cta-title { font-size: 34px; }
-      .cta-sub { font-size: 16px; }
+      .cta-title { font-size: 28px; }
+      .cta-sub { font-size: 14px; }
       .cta-content .btn-cta { align-self: stretch; justify-content: center; }
 
       /* Footer */
@@ -805,10 +931,12 @@
     }
 
     @media (max-width: 400px) {
-      .hero-app-name { font-size: 44px; }
-      .section-title { font-size: 30px; }
-      .feat-title { font-size: 24px; }
-      .cta-title { font-size: 28px; }
+      .hero-app-name { font-size: 62px; }
+      .hero-subtitle { font-size: 15px; }
+      .hero-tagline { font-size: 13px; }
+      .section-title { font-size: 28px; }
+      .feat-title { font-size: 22px; }
+      .cta-title { font-size: 24px; }
     }
   </style>
 
@@ -831,8 +959,14 @@
 
 <!-- ─── NAV ─── -->
 <nav class="nav">
-  <a href="/" class="nav-logo">CodiCheck</a>
+  <a href="/" class="nav-logo"><span class="hi">Codi</span>Check</a>
   <div class="nav-right">
+    <div class="nav-section-links">
+      <a href="#seah">캐릭터 소개</a>
+      <a href="#how">이용 방법</a>
+      <a href="#features">주요 기능</a>
+      <a href="#download">다운로드</a>
+    </div>
     <div class="lang-toggle">
       <span class="active">한국어</span>
       <span class="lang-sep">|</span>
@@ -842,7 +976,7 @@
     </div>
     <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
        class="btn-nav" target="_blank" rel="noopener">
-      <iconify-icon icon="solar:download-bold" style="font-size:15px"></iconify-icon>
+      <iconify-icon icon="solar:smartphone-bold" style="font-size:15px"></iconify-icon>
       <span class="btn-nav-text">다운로드</span>
     </a>
   </div>
@@ -851,12 +985,12 @@
 <!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-left" data-animate>
-    <h1 class="hero-app-name">CodiCheck</h1>
+    <h1 class="hero-app-name"><span class="hi">Codi</span>Check</h1>
     <p class="hero-subtitle">찐따를 위한 AI 코디 평가 앱</p>
     <p class="hero-tagline">소꿉친구 세아가 당신의 코디를 평가해드립니다</p>
     <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
        class="btn-cta" target="_blank" rel="noopener">
-      <iconify-icon icon="solar:play-bold" style="font-size:18px"></iconify-icon>
+      <iconify-icon icon="mdi:google-play" style="font-size:22px; color: #fff;"></iconify-icon>
       Google Play에서 다운로드
     </a>
     <p class="hero-note">Android 전용 · 무료 설치</p>
@@ -960,14 +1094,14 @@
 </section>
 
 <!-- ─── SEAH INTRO ─── -->
-<section class="seah-wrap">
+<section class="seah-wrap" id="seah">
   <div class="seah-inner">
     <div class="seah-img-frame" data-animate>
       <img src="assets/images/tutorial_slide_1.webp" alt="AI 소꿉친구 세아" loading="lazy" width="400" height="500">
     </div>
     <div data-animate data-delay="2">
-      <span class="section-tag">세아 소개</span>
-      <h2 class="seah-title">솔직하고 직설적인<br>AI 소꿉친구, 세아</h2>
+      <span class="section-tag">캐릭터 소개</span>
+      <h2 class="seah-title"><span class="hi">솔직하고 직설적인</span><br>AI 소꿉친구, 세아</h2>
       <div class="seah-body">
         <p>세아는 패션에 진심인 AI 소꿉친구예요.<br>
            눈치 없이 솔직하게, 때론 거침없이 직설적으로—<br>
@@ -980,16 +1114,16 @@
 </section>
 
 <!-- ─── HOW IT WORKS ─── -->
-<section>
+<section id="how">
   <div class="how-outer">
     <div class="how-header" data-animate>
       <span class="section-tag">이용 방법</span>
-      <h2 class="section-title">이렇게 사용해요</h2>
+      <h2 class="section-title"><span class="hi">이렇게</span> 사용해요</h2>
     </div>
     <div class="steps-grid">
       <div class="step-card" data-animate data-delay="1">
         <div class="step-img">
-          <img src="assets/screenshots/ko/tpo-selection.jpg" alt="착장 사진" loading="lazy" width="300" height="320">
+          <img src="assets/images/tutorial_outfit.webp" alt="착장 사진" loading="lazy" width="300" height="320">
         </div>
         <div class="step-body">
           <div class="step-num">1</div>
@@ -999,7 +1133,7 @@
       </div>
       <div class="step-card" data-animate data-delay="2">
         <div class="step-img">
-          <img src="assets/screenshots/ko/chat-evaluation.jpg" alt="AI 분석" loading="lazy" width="300" height="320">
+          <img src="assets/images/tutorial_slide_2.webp" alt="AI 분석" loading="lazy" width="300" height="320">
         </div>
         <div class="step-body">
           <div class="step-num">2</div>
@@ -1009,7 +1143,7 @@
       </div>
       <div class="step-card" data-animate data-delay="3">
         <div class="step-img">
-          <img src="assets/screenshots/ko/shopping-links.jpg" alt="쇼핑 링크" loading="lazy" width="300" height="320">
+          <img src="assets/images/tutorial_edited_outfit.webp" alt="쇼핑 링크 및 수정 이미지" loading="lazy" width="300" height="320">
         </div>
         <div class="step-body">
           <div class="step-num">3</div>
@@ -1022,18 +1156,18 @@
 </section>
 
 <!-- ─── FEATURES ─── -->
-<section class="features-wrap">
+<section class="features-wrap" id="features">
   <div class="features-outer">
     <div class="features-header" data-animate>
       <span class="section-tag">주요 기능</span>
-      <h2 class="section-title">CodiCheck이<br>특별한 이유</h2>
+      <h2 class="section-title"><span class="hi">Codi</span>Check가<br>특별한 이유</h2>
     </div>
 
     <!-- Feature 1 — left text, right mockup -->
     <div class="feature-row">
-      <div data-animate>
+      <div class="feat-text-col" data-animate>
         <div class="feat-icon"><iconify-icon icon="solar:map-point-bold"></iconify-icon></div>
-        <h3 class="feat-title">TPO를 알아야<br>진짜 코디</h3>
+        <h3 class="feat-title"><span class="hi">TPO</span>를 알아야<br>진짜 코디</h3>
         <p class="feat-desc">데이트, 면접, 여행 등 상황에 맞는 코디인지가 중요합니다. 14가지 TPO 카테고리를 선택하면 그 상황에 최적화된 AI 평가를 받을 수 있어요.</p>
       </div>
       <div class="feat-mockup-area" data-animate data-delay="2">
@@ -1054,18 +1188,18 @@
           </div>
         </div>
       </div>
-      <div data-animate>
+      <div class="feat-text-col" data-animate>
         <div class="feat-icon"><iconify-icon icon="solar:chat-round-bold"></iconify-icon></div>
-        <h3 class="feat-title">쓴소리와<br>해결책을 함께</h3>
+        <h3 class="feat-title"><span class="hi">쓴소리</span>와<br>해결책을 함께</h3>
         <p class="feat-desc">막연한 "잘 어울려요"는 없습니다. 어떤 부분이 왜 문제인지, 어떻게 고치면 좋은지 구체적으로 알려드립니다. 더 나아가, 개선에 딱 맞는 아이템을 세아가 직접 골라 쇼핑 링크로 전달해드립니다.</p>
       </div>
     </div>
 
     <!-- Feature 3 — left text, right mockup -->
     <div class="feature-row">
-      <div data-animate>
+      <div class="feat-text-col" data-animate>
         <div class="feat-icon"><iconify-icon icon="solar:magic-stick-bold"></iconify-icon></div>
-        <h3 class="feat-title">말 대신 이미지로<br>보여드립니다</h3>
+        <h3 class="feat-title">말 대신 <span class="hi">이미지</span>로<br>보여드립니다</h3>
         <p class="feat-desc">유료 코디 이용권을 사용하고 3.0점 미만 평가를 받으면, 세아의 조언대로 수정된 착장 이미지를 직접 확인할 수 있습니다. 백 마디 말보다 한 장의 이미지가 낫죠.</p>
       </div>
       <div class="feat-mockup-area" data-animate data-delay="2">
@@ -1093,9 +1227,9 @@
           </div>
         </div>
       </div>
-      <div data-animate>
+      <div class="feat-text-col" data-animate>
         <div class="feat-icon"><iconify-icon icon="solar:gallery-bold"></iconify-icon></div>
-        <h3 class="feat-title">평가 결과마다<br>세아의 일러스트를</h3>
+        <h3 class="feat-title">평가 결과마다<br><span class="hi">세아</span>의 일러스트를</h3>
         <p class="feat-desc">코디 평가 결과에 따라 세아의 특별한 일러스트가 주어집니다. 총 113종, 다양한 등급의 일러스트가 준비되어 있어요.</p>
       </div>
     </div>
@@ -1104,14 +1238,14 @@
 </section>
 
 <!-- ─── DOWNLOAD CTA ─── -->
-<div class="cta-outer">
+<div class="cta-outer" id="download">
   <div class="cta-card" data-animate>
     <div class="cta-content">
-      <h2 class="cta-title">지금 세아에게<br>평가받아보세요</h2>
+      <h2 class="cta-title">지금 <span class="hi">세아</span>에게<br>평가받아보세요</h2>
       <p class="cta-sub">오늘 입은 옷, 솔직한 한마디가 필요하지 않으세요?</p>
       <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
          class="btn-cta" target="_blank" rel="noopener">
-        <iconify-icon icon="solar:play-bold" style="font-size:18px"></iconify-icon>
+        <iconify-icon icon="mdi:google-play" style="font-size:22px; color: #fff;"></iconify-icon>
         Google Play에서 무료 다운로드
       </a>
       <p class="cta-note">Android 전용 · 무료 설치</p>
@@ -1126,7 +1260,7 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
-      <span class="footer-logo">CodiCheck</span>
+      <span class="footer-logo"><span class="hi">Codi</span>Check</span>
       <div class="footer-lang">
         <span class="active">한국어</span>
         <span class="sep">|</span>
@@ -1151,8 +1285,12 @@
 
 <script>
   // Email obfuscation
-  document.getElementById('contact-email').textContent =
-    ['contact', 'codicheck.app'].join('@');
+  (function() {
+    var u = '\x63\x6f\x6e\x74\x61\x63\x74';
+    var d = '\x63\x6f\x64\x69\x63\x68\x65\x63\x6b\x2e\x61\x70\x70';
+    var el = document.getElementById('contact-email');
+    if (el) el.textContent = u + '\x40' + d;
+  })();
 
   // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {

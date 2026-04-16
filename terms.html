@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, follow">
   <link rel="icon" type="image/webp" href="assets/images/opening.webp">
   <link rel="apple-touch-icon" href="assets/images/opening.webp">
-  <title>이용약관 — CodiCheck</title>
+  <title>서비스 이용약관 — CodiCheck</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet" crossorigin="anonymous">
   <style>
@@ -14,86 +14,125 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #0a0a0a; --bg2: #111111; --text: #ffffff; --text-muted: #9ca3af; --text-subtle: #6b7280; --accent: #3A86FF; --border: rgba(255,255,255,0.08); --font-lt: 'LTEnergy', sans-serif; --font-pre: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-pre); line-height: 1.7; }
-    a { color: var(--accent); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
     .nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,10,10,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--font-lt); font-style: italic; font-size: 20px; color: var(--text); text-decoration: none; }
-    .nav-back { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; transition: color 0.2s; text-decoration: none; }
-    .nav-back:hover { color: var(--text); }
-    .content { max-width: 720px; margin: 0 auto; padding: 72px 48px 120px; }
-    h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
-    .last-updated { font-size: 13px; color: var(--text-subtle); margin-bottom: 56px; }
-    h2 { font-size: 20px; font-weight: 700; margin: 40px 0 14px; }
-    p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
-    ul { padding-left: 20px; margin-bottom: 14px; }
-    li { font-size: 15px; color: var(--text-muted); margin-bottom: 6px; }
-    .placeholder-notice { background: rgba(58,134,255,0.08); border: 1px solid rgba(58,134,255,0.2); border-radius: 10px; padding: 20px 24px; font-size: 14px; color: var(--text-muted); margin-bottom: 40px; }
+    .hi { color: var(--accent); }
+    .nav-logo { font-family: var(--font-lt); font-style: italic; font-size: 26px; letter-spacing: -0.3px; color: var(--text); }
+    .nav-back { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); text-decoration: none; }
+    .content { max-width: 800px; margin: 0 auto; padding: 72px 48px 120px; }
+    h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; line-height: 1.3; }
+    .meta { font-size: 13px; color: var(--text-subtle); margin-bottom: 12px; }
+    .intro { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    h2 { font-size: 20px; font-weight: 700; margin: 44px 0 16px; }
+    p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+    ul { padding-left: 22px; margin-bottom: 16px; }
+    li { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.75; }
     .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 48px; }
-    .footer-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 18px; }
+    .footer-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 26px; }
     .footer-copy { font-size: 12px; color: var(--text-subtle); }
-    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 24px 80px; } h1 { font-size: 28px; } .footer { padding: 32px 24px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
+    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 20px 80px; } h1 { font-size: 26px; } .footer { padding: 32px 20px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
   </style>
 </head>
 <body>
 
 <nav class="nav">
-  <a href="/" class="nav-logo">CodiCheck</a>
+  <a href="/" class="nav-logo"><span class="hi">Codi</span>Check</a>
   <a href="/" class="nav-back">← 홈으로 돌아가기</a>
 </nav>
 
 <div class="content">
-  <h1>이용약관</h1>
-  <p class="last-updated">최종 수정일: 2026년 4월 15일</p>
+  <h1>📖 서비스 이용약관</h1>
+  <!-- TODO: 출시일 확정 후 날짜 업데이트 -->
+  <p class="meta">최종 업데이트: 2026년 &nbsp;&nbsp;|&nbsp;&nbsp; 시행일: 2026년</p>
 
-  <div class="placeholder-notice">
-    이 페이지는 플레이스홀더입니다. 법률 전문가 검토 후 실제 내용을 입력해주세요.
+  <div class="intro">
+    본 이용약관("약관")은 코디체크 모바일 애플리케이션("앱" 또는 "서비스")의 사용에 적용됩니다. 본 약관은 1인 개발자 kukuDev("운영자")와 귀하("사용자" 또는 "귀하") 간에 법적 구속력을 갖는 계약을 형성합니다. 본 서비스를 사용함으로써 귀하는 본 약관을 읽고 이해했으며 동의함을 인정합니다. 본 약관에 동의하지 않는 경우, 본 서비스에 접속하거나 사용하지 마십시오.
   </div>
 
-  <h2>제1조 (목적)</h2>
-  <p>이 약관은 (주)OOO(이하 "회사")이 제공하는 CodiCheck 서비스(이하 "서비스") 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+  <h2>1. 서비스 소개</h2>
+  <p>'코디체크'는 인공지능(AI) 페르소나인 소꿉친구 패션 인플루언서 '세아'가 사용자의 착장 사진을 평가하고, 피드백 및 쇼핑 링크를 제공하며, 수정된 코디 이미지를 생성해주는 엔터테인먼트 겸 유틸리티 애플리케이션입니다.</p>
 
-  <h2>제2조 (정의)</h2>
+  <h2>2. 약관의 수락 및 연령 제한</h2>
+  <p><strong>2.1.</strong> 귀하는 본 서비스를 사용함으로써 본 약관 및 개인정보 처리방침에 동의함을 인정합니다. 본 서비스를 이용하려면 만 16세 이상이어야 합니다. 귀하는 본 서비스를 이용함으로써 귀하가 만 16세 이상이며 본 약관을 체결할 법적 능력이 있음을 진술하고 보증합니다.</p>
+  <p><strong>2.2.</strong> 귀하가 회사 또는 기타 법인을 대신하여 본 서비스에 액세스하거나 사용하는 경우, 귀하는 해당 법인을 본 약관에 구속할 권한이 있음을 진술하고 보증합니다. 이 경우 "귀하"라는 용어는 해당 법인을 지칭합니다.</p>
+
+  <h2>3. 사용자 계정 및 닉네임</h2>
+  <p><strong>3.1. 계정 생성:</strong> 본 서비스의 전체 기능(예: AI 착장 평가, 일러스트 해금 등)을 이용하려면 반드시 계정을 생성해야 합니다. 계정은 Google 로그인을 통해 생성할 수 있습니다. 귀하는 등록 시 정확하고 완전한 정보를 제공해야 합니다.</p>
+  <p><strong>3.2. 닉네임 규칙:</strong> 2~10자의 한글, 영문, 숫자, 언더스코어(_) 조합만 허용됩니다. 귀하의 닉네임은 철저히 AI와의 1:1 개인 채팅에서만 사용되므로 별도의 욕설/비방 필터링은 적용되지 않습니다. 단, 닉네임은 한 번 설정하면 절대 변경할 수 없으므로 신중히 선택해 주십시오. 귀하는 본인 기기 및 소셜 계정의 보안을 유지할 전적인 책임이 있습니다.</p>
+  <p><strong>3.3. 계정 정보의 정확성:</strong> 귀하는 귀하의 소셜 계정에서 제공하는 정보의 정확성을 유지할 책임이 있습니다. 허위 정보 제공으로 인해 발생하는 문제에 대해 운영자는 책임을 지지 않습니다.</p>
+  <p><strong>3.4. 계정 보안:</strong> 귀하는 귀하의 기기 및 소셜 계정의 보안을 유지할 책임이 있으며, 귀하의 계정 하에서 발생하는 모든 활동에 대한 전적인 책임이 있습니다. 귀하는 무단 사용 또는 기타 보안 위반 발생 시 즉시 운영자에게 통지해야 합니다.</p>
+
+  <h2>4. 상품 및 인앱 결제 정책</h2>
+  <p>본 서비스는 다음과 같은 유료 상품을 제공합니다:</p>
+  <p><strong>4.1. 유료 코디 이용권 (소모성):</strong> AI 패션 평가 요청 시 사용됩니다. 유료 이용권을 사용할 경우, 점수가 3.0점 미만일 때 세아의 피드백이 반영된 '수정된 착장 이미지'가 확정적으로 생성되어 시각적인 개선 방향을 확인할 수 있습니다. 평가 시작과 동시에 1개가 차감됩니다.</p>
+  <p><strong>4.2. 광고 제거 (비소모성):</strong> 1회 구매로 앱 내의 배너 광고, 전면 광고, 앱 시작(오프닝) 광고를 영구적으로 제거합니다. (단, 무료 코디 이용권을 얻기 위해 사용자가 자발적으로 시청하는 '보상형 동영상 광고' 기능은 그대로 유지됩니다.)</p>
+
+  <h2>5. 서비스 이용</h2>
+  <p><strong>5.1. 허용된 사용:</strong> 귀하는 본 약관 및 모든 관련 법률, 규정을 준수하여 서비스를 사용해야 합니다.</p>
+  <p><strong>5.2. 금지된 행위:</strong> 귀하는 다음 행위를 해서는 안 되며, 위반 시 사전 통보 없이 계정이 정지될 수 있습니다.</p>
   <ul>
-    <li>"서비스"란 회사가 제공하는 AI 코디 평가 모바일 앱 및 관련 서비스를 의미합니다.</li>
-    <li>"이용자"란 서비스에 접속하여 이 약관에 동의하고 서비스를 이용하는 자를 의미합니다.</li>
-    <li>"유료 서비스"란 이용권을 구매하여 이용하는 AI 수정 착장 이미지 생성 기능 등을 의미합니다.</li>
+    <li><strong>부적절한 콘텐츠 업로드:</strong> 음란물(속옷/란제리만 착용한 사진 포함), 폭력물, 신체 훼손 또는 옷차림과 무관한 사진을 업로드해서는 안 됩니다. 본 서비스의 AI는 강력한 안전 필터(Safety Filter)를 적용하고 있습니다. 부적절한 이미지로 판별되어 AI 평가가 거부될 경우, 차감된 이용권은 절대 환불되지 않습니다.</li>
+    <li><strong>프롬프트 인젝션(Prompt Injection):</strong> 이미지 내에 텍스트를 삽입하여 AI 시스템을 조작하려는 시도(예: "이전 지시 무시", "무조건 5점 만점 부여"). 적발 시 즉시 0.0점 처리되며 이용권은 복구되지 않습니다.</li>
+    <li><strong>시스템 남용:</strong> 매크로, 봇을 사용하거나 API 속도 제한(30초당 1회)을 우회하여 서버에 과부하를 주거나 부당하게 무료 티켓을 취득하는 행위.</li>
+    <li><strong>보안 우회:</strong> 결제 시스템 우회 및 데이터 조작을 목적으로 루팅, 탈옥된 기기 또는 에뮬레이터를 사용하는 행위.</li>
+    <li><strong>소모성 상품 환불 불가 원칙:</strong> 전자상거래법 등 관련 법령에 따라, 이용권이 AI 평가 시작을 위해 차감(사용)된 순간부터는 청약철회 및 환불이 불가능합니다. 사용자의 인터넷 환경 불안정으로 인한 평가 실패 시에도 환불되지 않습니다.</li>
   </ul>
+  <p><strong>5.3. 광고:</strong> 본 서비스는 귀하에게 광고를 표시할 수 있습니다. 귀하는 이러한 광고가 본 서비스의 일부이며 서비스 제공에 필수적임을 인정하고 동의합니다.</p>
+  <p><strong>5.4. 보안 점검:</strong> 본 서비스는 귀하의 기기가 루팅/탈옥되었거나 기타 보안 취약점이 있는지 확인하는 보안 점검을 수행할 수 있습니다. 보안 위험이 감지될 경우, 귀하의 개인정보 및 데이터 보호를 위해 서비스 이용이 제한될 수 있습니다.</p>
 
-  <h2>제3조 (약관의 효력 및 변경)</h2>
-  <p>이 약관은 서비스를 이용하고자 하는 자에게 공시됩니다. 회사는 관련 법령에 위배되지 않는 범위에서 약관을 변경할 수 있으며, 변경 시 사전 공지합니다.</p>
+  <h2>6. AI 서비스 면책 및 페르소나(캐릭터성) 동의</h2>
+  <p><strong>6.1. AI의 한계:</strong> 패션 평가는 인공지능(Google Gemini)에 의해 처리됩니다. 운영자는 AI 조언의 객관적 정확성, 무결성, 특정 목적에의 적합성을 법적으로 보장하지 않습니다.</p>
+  <p><strong>6.2. '츤데레' 페르소나 동의:</strong> AI 캐릭터 '세아'는 사용자에게 까칠하고 직설적인 화법을 사용하는 '츤데레' 컨셉으로 설계되었습니다. 낮은 점수(3.0점 미만)를 받을 경우 원색적이고 신랄한 독설이 출력됩니다. 서비스를 이용함은 이러한 엔터테인먼트적 요소에 동의하는 것으로 간주하며, 이를 개인적인 모욕으로 받아들여 운영자에게 정신적 피해보상 등 법적 책임을 물을 수 없습니다.</p>
 
-  <h2>제4조 (서비스 이용)</h2>
-  <p>서비스는 Android 기기에서 무료로 이용 가능합니다. 일부 기능(AI 수정 착장 이미지 생성 등)은 유료 이용권이 필요합니다.</p>
+  <h2>7. 제3자 서비스 및 콘텐츠</h2>
+  <p><strong>7.1.</strong> 본 서비스는 Firebase(인증, 데이터베이스, 클라우드 함수, 메시징), Google AdMob(광고), Google 로그인 등 제3자가 제공하는 서비스 및 기능과 통합될 수 있습니다. 귀하가 이러한 제3자 서비스를 사용하는 경우, 귀하는 해당 제3자의 이용약관 및 개인정보 처리방침의 적용을 받습니다. 운영자는 제3자 서비스에 대해 어떠한 책임도 지지 않습니다.</p>
+  <p><strong>7.2.</strong> 본 서비스는 다른 웹사이트, 애플리케이션 또는 서비스에 대한 링크를 포함할 수 있습니다. 운영자는 이러한 제3자 웹사이트, 애플리케이션 또는 서비스의 콘텐츠, 개인정보 처리방침 또는 관행에 대해 통제권이 없으며 어떠한 책임도 지지 않습니다.</p>
 
-  <h2>제5조 (결제 및 환불)</h2>
-  <p>유료 서비스 결제는 Google Play를 통해 이루어집니다. 환불 정책은 Google Play 스토어 정책을 따릅니다. 이용권을 사용한 경우 환불이 제한될 수 있습니다.</p>
+  <h2>8. 제3자 서비스 및 제휴(어필리에이트) 링크</h2>
+  <p>앱은 AI의 피드백을 기반으로 쇼핑 검색 링크(쿠팡 파트너스, Amazon 등)를 제공합니다. 사용자가 해당 링크를 통해 상품을 구매할 경우 운영자는 일정액의 제휴 수수료를 제공받을 수 있습니다. 운영자는 외부 쇼핑몰의 상품, 배송, 결제, 환불 등에 대해 어떠한 통제권도 없으며 책임을 지지 않습니다.</p>
 
-  <h2>제6조 (이용자의 의무)</h2>
-  <ul>
-    <li>이용자는 타인의 개인정보 또는 초상권을 침해하는 이미지를 업로드해서는 안 됩니다.</li>
-    <li>이용자는 서비스를 상업적 목적으로 무단 사용해서는 안 됩니다.</li>
-    <li>이용자는 서비스의 정상적인 운영을 방해하는 행위를 해서는 안 됩니다.</li>
-  </ul>
+  <h2>9. 개인정보 처리방침</h2>
+  <p>귀하의 개인정보 수집, 사용 및 공개에 대한 정보는 <a href="/privacy.html">개인정보 처리방침</a>을 참조하십시오. 귀하는 본 서비스를 사용함으로써 당사의 개인정보 처리방침에 따라 귀하의 정보를 수집하고 사용하는 것에 동의합니다.</p>
 
-  <h2>제7조 (면책사항)</h2>
-  <p>AI가 제공하는 코디 평가는 참고용이며, 회사는 평가 결과의 정확성에 대해 보증하지 않습니다. 회사는 서비스 이용으로 발생한 손해에 대해 관련 법령이 허용하는 범위 내에서 책임을 제한합니다.</p>
+  <h2>10. 면책 조항</h2>
+  <p>본 서비스는 "있는 그대로", "사용 가능한 그대로" 제공됩니다. 운영자는 본 서비스가 중단되지 않거나, 오류가 없거나, 안전하거나, 특정 목적에 적합하다는 것을 포함하여, 명시적이든 묵시적이든 어떠한 종류의 보증도 하지 않습니다.</p>
 
-  <h2>제8조 (준거법 및 관할법원)</h2>
-  <p>이 약관은 대한민국 법률에 따릅니다. 서비스 이용과 관련한 분쟁은 회사의 주소지를 관할하는 법원을 제1심 관할법원으로 합니다.</p>
+  <h2>11. 책임의 제한</h2>
+  <p>관련 법률이 허용하는 최대 한도 내에서, 운영자는 어떠한 경우에도 본 서비스의 사용 또는 사용 불능으로 인해 발생하거나 이와 관련하여 발생하는 모든 간접적, 부수적, 특별, 징벌적 또는 결과적 손해에 대해 책임을 지지 않습니다. 운영자의 귀하에 대한 총 책임은 귀하가 본 서비스 사용을 위해 지불한 금액을 초과하지 않습니다.</p>
 
-  <h2>문의</h2>
-  <p>약관에 관한 문의는 <span id="terms-email"></span>으로 연락해주세요.</p>
+  <h2>12. 면책</h2>
+  <p>귀하는 귀하의 본 서비스 사용, 귀하의 약관 위반 또는 귀하의 제3자 권리 침해로 인해 발생하거나 이와 관련하여 발생하는 모든 청구, 손실, 손해, 책임 및 비용(합리적인 변호사 수임료 포함)으로부터 kukuDev를 면책하고 보호하는 데 동의합니다.</p>
+
+  <h2>13. 약관의 변경</h2>
+  <p>운영자는 언제든지 본 약관을 수정하거나 대체할 권리를 전적으로 보유합니다. 중대한 변경의 경우, 운영자는 새로운 약관이 발효되기 전에 최소 30일 전에 앱 내 공지 또는 기타 합리적인 방법을 통해 통지할 것입니다. 변경된 약관에 동의하지 않는 경우, 본 서비스를 계속 사용하지 마십시오.</p>
+
+  <h2>14. 서비스의 종료</h2>
+  <p>운영자는 귀하의 본 약관 위반을 포함하되 이에 국한되지 않는 어떠한 이유로든 사전 통지 없이 또는 유무에 관계없이 귀하의 서비스 접속을 즉시 종료하거나 일시 중지할 수 있습니다. 종료 시, 귀하의 서비스 사용 권리는 즉시 중단됩니다.</p>
+
+  <h2>15. 준거법 및 분쟁 해결</h2>
+  <p>본 약관은 대한민국의 법률에 따라 규율되고 해석됩니다. 본 약관과 관련하여 발생하는 모든 분쟁은 대한민국 법원에 의해 독점적으로 해결됩니다.</p>
+
+  <h2>16. 기타 조항</h2>
+  <p><strong>16.1. 분리 가능성:</strong> 본 약관의 조항 중 어떤 조항이 무효하거나 시행 불가능하다고 판단되는 경우, 해당 조항은 최소한으로 필요한 범위 내에서 제한되거나 제거되며, 본 약관의 나머지 조항은 완전한 효력을 유지합니다.</p>
+  <p><strong>16.2. 양도:</strong> 귀하는 운영자의 사전 서면 동의 없이 본 약관에 따른 귀하의 권리 또는 의무를 양도하거나 이전할 수 없습니다. 운영자는 통지 없이 본 약관에 따른 권리 또는 의무를 자유롭게 양도할 수 있습니다.</p>
+  <p><strong>16.3. 완전한 합의:</strong> 본 약관은 본 서비스와 관련하여 귀하와 운영자 간의 완전한 합의를 구성하며, 모든 이전 또는 동시의 구두 또는 서면 통신, 제안 및 진술을 대체합니다.</p>
+
+  <h2>17. 문의</h2>
+  <p>본 약관에 대해 질문이 있는 경우 다음 이메일로 문의하십시오: <span id="contact-email"></span></p>
 </div>
 
 <footer class="footer">
   <div class="footer-inner">
-    <span class="footer-logo">CodiCheck</span>
+    <span class="footer-logo"><span class="hi">Codi</span>Check</span>
     <span class="footer-copy">© 2026 CodiCheck. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
-  document.getElementById('terms-email').textContent = ['contact', 'codicheck.app'].join('@');
+  document.getElementById('contact-email').textContent = ['orion400000', 'gmail.com'].join('@');
 </script>
 </body>
 </html>

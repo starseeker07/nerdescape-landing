@@ -14,70 +14,144 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #0a0a0a; --bg2: #111111; --text: #ffffff; --text-muted: #9ca3af; --text-subtle: #6b7280; --accent: #3A86FF; --border: rgba(255,255,255,0.08); --font-lt: 'LTEnergy', sans-serif; --font-pre: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-pre); line-height: 1.7; }
-    a { color: var(--accent); }
+    a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
     .nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,10,10,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-family: var(--font-lt); font-style: italic; font-size: 20px; color: var(--text); text-decoration: none; }
-    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-    .nav-back:hover { color: var(--text); }
-    .content { max-width: 720px; margin: 0 auto; padding: 72px 48px 120px; }
-    h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
-    .last-updated { font-size: 13px; color: var(--text-subtle); margin-bottom: 56px; }
-    h2 { font-size: 20px; font-weight: 700; margin: 40px 0 14px; }
-    p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
-    ul { padding-left: 20px; margin-bottom: 14px; }
-    li { font-size: 15px; color: var(--text-muted); margin-bottom: 6px; }
-    .placeholder-notice { background: rgba(58,134,255,0.08); border: 1px solid rgba(58,134,255,0.2); border-radius: 10px; padding: 20px 24px; font-size: 14px; color: var(--text-muted); margin-bottom: 40px; }
+    .nav-logo { font-family: var(--font-lt); font-style: italic; font-size: 20px; color: var(--text); }
+    .nav-back { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); text-decoration: none; }
+    .content { max-width: 800px; margin: 0 auto; padding: 72px 48px 120px; }
+    h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; line-height: 1.3; }
+    .meta { font-size: 13px; color: var(--text-subtle); margin-bottom: 12px; }
+    .intro { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    h2 { font-size: 20px; font-weight: 700; margin: 44px 0 16px; }
+    p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
+    ul { padding-left: 22px; margin-bottom: 16px; }
+    li { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.75; }
+    .note { font-size: 13px; color: var(--text-subtle); font-style: italic; margin: 12px 0; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 28px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { background: rgba(255,255,255,0.06); color: var(--text); font-weight: 600; padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); vertical-align: top; line-height: 1.65; }
+    tr:last-child td { border-bottom: none; }
     .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 48px; }
-    .footer-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 18px; }
     .footer-copy { font-size: 12px; color: var(--text-subtle); }
-    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 24px 80px; } h1 { font-size: 28px; } .footer { padding: 32px 24px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
+    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 20px 80px; } h1 { font-size: 26px; } .footer { padding: 32px 20px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
   </style>
 </head>
 <body>
+
 <nav class="nav">
   <a href="/ja/" class="nav-logo">CodiCheck</a>
   <a href="/ja/" class="nav-back">← ホームに戻る</a>
 </nav>
+
 <div class="content">
-  <h1>プライバシーポリシー</h1>
-  <p class="last-updated">最終更新日: 2026年4月15日</p>
-  <div class="placeholder-notice">このページはプレースホルダーです。法的レビュー後に実際の内容に差し替えてください。</div>
-  <h2>1. 個人情報管理者</h2>
-  <p>OOO株式会社（以下「当社」）は、CodiCheckサービス（以下「サービス」）を運営しており、適用法令に従いお客様の個人情報を保護します。</p>
-  <h2>2. 収集する個人情報</h2>
+  <h1>🔒 プライバシーポリシー</h1>
+  <!-- TODO: リリース日確定後に日付を更新 -->
+  <p class="meta">最終更新日: 2026年 &nbsp;&nbsp;|&nbsp;&nbsp; 施行日: 2026年</p>
+
+  <div class="intro">
+    個人開発者であるkukuDev（以下「運営者」）は、「コーデチェック (CodiCheck)」モバイルアプリケーション（以下「本アプリ」または「本サービス」）のユーザー（以下「お客様」）のプライバシー保護を非常に重要視しています。本プライバシーポリシーは、私がお客様の情報を収集、使用、公開、および保護する方法について説明します。本サービスを利用することにより、お客様は本プライバシーポリシーに記載されている取り扱いに同意したものとみなされます。
+  </div>
+
+  <h2>1. 収集する情報および利用目的</h2>
+  <p>本サービスを利用するにはログインが必須であり、円滑なAIファッション評価を提供するために以下の最小限の情報を収集します。</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>区分</th><th>収集する項目</th><th>利用目的</th><th>保持および利用期間</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>アカウント情報</strong></td><td>メールアドレス、Firebase UID、ログインプロバイダ(Google)</td><td>アカウント作成、ユーザー識別、ログイン管理</td><td>退会時に即時破棄</td></tr>
+        <tr><td><strong>プロフィール情報</strong></td><td>ニックネーム</td><td>個人的なAIとの1対1のチャット内でお客様を呼ぶため</td><td>退会時に即時破棄</td></tr>
+        <tr><td><strong>身体情報</strong></td><td>年齢、身長、体重、体型、性別</td><td>体型を考慮した正確なカスタマイズAIファッション評価の提供</td><td>退会時に即時破棄</td></tr>
+        <tr><td><strong>ユーザーコンテンツ</strong></td><td>服装の写真</td><td>AIファッション分析およびコーディネート修正画像の生成</td><td>AI処理完了後、サーバーから即時破棄</td></tr>
+        <tr><td><strong>デバイス/利用履歴</strong></td><td>端末モデル、OSバージョン、アプリクラッシュログ</td><td>サービスの安定性向上およびエラー(バグ)修正</td><td>Firebase Crashlyticsのポリシーに準ずる</td></tr>
+        <tr><td><strong>規約同意情報</strong></td><td>利用規約およびプライバシーポリシーへの同意有無</td><td>規約同意に対する法的な証明</td><td>関連法令に基づき、同意時点から5年間保管後に破棄</td></tr>
+        <tr><td><strong>決済情報</strong></td><td>アプリ内課金履歴（商品ID、プラットフォーム）、レシートデータ(Purchase Token)、注文番号、決済日時</td><td>アプリ内決済の有効性検証、商品の提供、重複決済および不正利用防止、返金および顧客対応</td><td>関連法令に基づき、決済時点から5年間保管後に破棄</td></tr>
+        <tr><td><strong>コーデ利用券利用履歴</strong></td><td>コーデ利用券（無料および有料を含む）の利用・消費履歴</td><td>返金手続き、不正利用の防止、およびカスタマーサポート対応のため</td><td>利用時点から5年間保管後に破棄</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2. 情報の共有および公開</h2>
+  <p>運営者は、以下の場合にのみお客様の個人情報を共有または公開することがあります。</p>
+  <p><strong>2.1. お客様の同意：</strong>お客様が個人情報の共有に明示的に同意した場合。</p>
+  <p><strong>2.2. サービスプロバイダー：</strong>運営者の事業運営を支援するため、以下の第三者サービスプロバイダーと情報を共有することがあります。これらのプロバイダーは、運営者に代わってサービスを実行するために必要な範囲内でのみ情報にアクセスでき、厳格な機密保持義務を負います。</p>
   <ul>
-    <li>アカウント情報：メールアドレス、ニックネーム</li>
-    <li>サービス利用情報：アップロードした画像、利用履歴、決済情報</li>
-    <li>端末情報：端末識別子、OSバージョン、アプリバージョン</li>
+    <li>Google Gemini API：服装の分析および画像生成のため、アップロードされた写真と入力された身体情報を送信します。</li>
+    <li>Google Firebase：ユーザー認証、データベース(Firestore, Storage)、サーバーホスティング(Functions)、クラッシュレポート(Crashlytics)など、サービスのコアインフラを提供します。</li>
+    <li>Google Play：アプリ内決済の処理、レシートの有効性検証、および返金対応のため、決済レシートデータおよび注文情報を送信します。</li>
+    <li>Google AdMob：広告を配信します。</li>
   </ul>
-  <h2>3. 利用目的</h2>
-  <ul>
-    <li>サービスの提供および改善</li>
-    <li>カスタマーサポート</li>
-    <li>決済処理および返金対応</li>
-    <li>法令上の義務の履行</li>
-  </ul>
-  <h2>4. 保存期間</h2>
-  <p>退会時に速やかに削除します。ただし、法令により一定期間の保存が必要な場合はその期間保存します。</p>
-  <h2>5. 第三者提供</h2>
-  <p>法令に基づく場合またはお客様の同意がある場合を除き、個人情報を第三者に提供しません。</p>
-  <h2>6. 委託先</h2>
-  <ul>
-    <li>Google LLC：認証・決済処理</li>
-    <li>Google Firebase：サーバー運営・データ保存</li>
-  </ul>
-  <h2>7. お客様の権利</h2>
-  <p>個人情報の閲覧、訂正、削除、処理停止をいつでもご請求いただけます。下記メールアドレスまでお問い合わせください。</p>
-  <h2>8. お問い合わせ</h2>
-  <p>メール: <span id="privacy-email"></span></p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>提供先</th><th>提供する情報</th><th>提供目的</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Google LLC (Gemini API)</td><td>服装の写真 (EXIF削除済み)、身体情報</td><td>AIファッション評価およびコーディネート修正画像の生成</td></tr>
+        <tr><td>Google LLC (Firebase)</td><td>メールアドレス、UID、利用履歴、クラッシュログ</td><td>バックエンドインフラの提供（認証、DB、サーバーエラー分析）</td></tr>
+        <tr><td>Google LLC (Google Play)</td><td>決済レシートデータ(Purchase Token)、注文番号、購入した商品情報</td><td>アプリ内決済の処理およびレシートの有効性検証、返金対応</td></tr>
+        <tr><td>Google LLC (AdMob)</td><td>デバイス識別子、広告の相互作用データ</td><td>パーソナライズおよび非パーソナライズ広告の配信</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">※ 注意：アプリ内で提供されるショッピングリンク（Coupang、Amazon等）は、お客様のファッション評価に基づく「一般的な検索キーワード」のみで生成され、個人識別情報は一切ショッピングプラットフォームに送信されません。</p>
+  <p><strong>2.3. 法的要件：</strong>法律、規制、法的手続き（例：裁判所の命令または召喚状）によって要求された場合、または運営者の権利、財産、安全を保護するために必要であると判断された場合。</p>
+  <p><strong>2.4. 事業譲渡：</strong>合併、買収、資産売却、または破産などの事業取引に関連して、お客様の情報が移転されることがあります。</p>
+  <p><strong>2.5. 匿名化または集計された情報：</strong>個人を特定できない匿名化または集計された情報を、パートナー、研究者、またはその他の第三者と共有することがあります。</p>
+
+  <h2>3. データの保存と保管期間</h2>
+  <p><strong>3.1. サーバー保存およびローカルチャット履歴：</strong>運営者は、お客様がアカウントを有効にしてサービスを利用している間、アカウントおよび身体情報をサーバーに保管します。ただし、AI「セア」と交わしたチャット履歴はサーバーに一切保存されず、お客様のデバイスに暗号化されたデータベース(SQLCipher)としてローカル保存されます。</p>
+  <p><strong>3.2. データの削除：</strong>お客様がアカウントを削除（退会）した場合、サーバーに保存されているすべての個人識別可能な情報は、関連法律によって必要な場合を除き、遅滞なく永久に削除されます。ローカルに保存されたチャットデータはアプリの削除時に破棄されます。</p>
+  <p><strong>3.3. 法的保管：</strong>関連法令に基づき、以下の情報は退会後も一定期間保管されます。保管期間が満了すると自動的に永久破棄されます。</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>保管項目</th><th>保管期間</th><th>根拠法令</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>規約およびプライバシーポリシーの同意記録</td><td>同意時点を基準に5年間保管後に破棄</td><td>電子商取引等における消費者保護に関する法律（韓国）等</td></tr>
+        <tr><td>決済記録（商品ID、プラットフォーム、レシートデータ、注文番号、決済日時）</td><td>決済時点を基準に5年間保管後に破棄</td><td>電子商取引等における消費者保護に関する法律（韓国）等</td></tr>
+        <tr><td>コーデ利用券（無料・有料）の利用履歴</td><td>利用時点から5年間</td><td>電子商取引等における消費者保護に関する法律（韓国）等</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4. データセキュリティ</h2>
+  <p>運営者は、お客様の個人情報を保護するために合理的なセキュリティ対策を講じています。これには、写真アップロード前のメタデータ（位置情報などのEXIF）の自動破棄、Firebase App Checkを通じた不正アクセスの遮断、データ通信の暗号化（HTTPS）、ローカルデータベースの暗号化が含まれます。しかし、インターネット通信方式は100%安全ではないため、絶対的なセキュリティを保証することはできません。</p>
+
+  <h2>5. お客様の権利</h2>
+  <p>お客様はご自身の個人情報に関し、以下の権利を有します。</p>
+  <p><strong>5.1. アクセスおよび修正：</strong>お客様は、自身のアカウント情報にアクセスして修正する権利があります。ただし、ニックネームは一度設定すると変更できませんので、慎重に選択してください。</p>
+  <p><strong>5.2. 削除：</strong>お客様は「退会」を通じて、自身のすべての個人識別可能な情報を永久に削除することができます。削除時、アカウント情報、プロフィール、身体情報、服装評価履歴、およびイラストの解禁履歴は復元不可能な形で即時削除されます。ただし、関連法令に基づき、同意記録、決済記録、およびコーデ利用券（無料・有料）の利用履歴は、それぞれ同意、決済、および利用時点から5年間保管された後、自動的に破棄されます。</p>
+  <p><strong>5.3. 通知設定：</strong>お客様はアプリ内の設定メニューから、無料コーディネート利用券チャージ通知を自由に制御できます。本アプリはマーケティング目的の通知を送信しません。</p>
+
+  <h2>6. 子供のプライバシー</h2>
+  <p>本サービスは16歳未満の子供を対象としていません。運営者は16歳未満の子供から意図的に個人情報を収集することはありません。16歳未満の子供が個人情報を提供したことが判明した場合、運営者は当該情報を記録から削除するための措置を講じます。</p>
+
+  <h2>7. 国際データ転送</h2>
+  <p>お客様の情報は、お客様の居住国、州、またはその他の政府管轄区域外に位置するコンピューターに保存され、処理されることがあります。お客様が韓国以外の地域にお住まいの場合、運営者が情報を収集、転送、処理するデータ保護法が、お客様の管轄区域と異なる場合があることをご了承ください。本ポリシーに同意し情報を提出することにより、お客様はこの転送に同意したものとみなされます。運営者は、お客様のデータが本ポリシーに従って安全に取り扱われるよう、合理的に必要なすべての措置を講じます。</p>
+
+  <h2>8. 本プライバシーポリシーの変更</h2>
+  <p>運営者は、随時本プライバシーポリシーを更新することがあります。重大な変更がある場合は、変更が発効する少なくとも30日前に、アプリ内のお知らせ、電子メール、またはその他の合理的な方法を通じてお客様に通知します。軽微な変更（例：誤字の修正）は、別途通知することなく更新されることがあります。定期的に本ページ上部の「最終更新日」をご確認ください。</p>
+
+  <h2>9. お問い合わせ</h2>
+  <p>本プライバシーポリシーに関するご質問がある場合は、以下のメールアドレスまでお問い合わせください：<span id="contact-email"></span></p>
 </div>
+
 <footer class="footer">
   <div class="footer-inner">
     <span class="footer-logo">CodiCheck</span>
     <span class="footer-copy">© 2026 CodiCheck. All rights reserved.</span>
   </div>
 </footer>
-<script>document.getElementById('privacy-email').textContent = ['contact', 'codicheck.app'].join('@');</script>
+
+<script>
+  document.getElementById('contact-email').textContent = ['orion400000', 'gmail.com'].join('@');
+</script>
 </body>
 </html>
