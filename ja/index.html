@@ -134,7 +134,14 @@
     .features-wrap { background: var(--bg2); padding: 100px 0 120px; position: relative; overflow: hidden; }
     .features-wrap::before { content: ''; position: absolute; top: 20%; right: -180px; width: 680px; height: 680px; background: radial-gradient(circle, rgba(58,134,255,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
     .features-wrap::after { content: ''; position: absolute; bottom: 10%; left: -120px; width: 480px; height: 480px; background: radial-gradient(circle, rgba(58,134,255,0.06) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-    .features-outer { max-width: 1200px; margin: 0 auto; padding: 0 80px; position: relative; }
+    .features-wave-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .features-wave-bg svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    @keyframes waveFloat1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+    @keyframes waveFloat2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(16px); } }
+    .wave-g1 { animation: waveFloat1 24s ease-in-out infinite; }
+    .wave-g2 { animation: waveFloat2 30s ease-in-out infinite; }
+    .wl { fill: none; stroke-width: 0.7; }
+    .features-outer { max-width: 1200px; margin: 0 auto; padding: 0 80px; position: relative; z-index: 1; }
     .features-header { margin-bottom: 32px; }
     .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; }
     .feature-row:last-child { margin-bottom: 0; }
@@ -459,6 +466,32 @@
 </section>
 
 <section class="features-wrap" id="features">
+  <div class="features-wave-bg" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <g class="wave-g1">
+        <path class="wl" style="stroke:rgba(58,134,255,0.07)" d="M-100,50  C350,0   950,180 1540,470"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.09)" d="M-100,100 C350,50  950,230 1540,520"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.11)" d="M-100,150 C350,100 950,280 1540,570"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.14)" d="M-100,200 C350,150 950,330 1540,620"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.17)" d="M-100,250 C350,200 950,380 1540,670"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.14)" d="M-100,300 C350,250 950,430 1540,720"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.11)" d="M-100,350 C350,300 950,480 1540,770"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.09)" d="M-100,400 C350,350 950,530 1540,820"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.07)" d="M-100,450 C350,400 950,580 1540,870"/>
+      </g>
+      <g class="wave-g2">
+        <path class="wl" style="stroke:rgba(58,134,255,0.07)" d="M1540,870 C1100,840 560,620 -100,380"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.09)" d="M1540,820 C1100,790 560,570 -100,330"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.11)" d="M1540,770 C1100,740 560,520 -100,280"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.14)" d="M1540,720 C1100,690 560,470 -100,230"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.17)" d="M1540,670 C1100,640 560,420 -100,180"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.14)" d="M1540,620 C1100,590 560,370 -100,130"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.11)" d="M1540,570 C1100,540 560,320 -100,80"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.09)" d="M1540,520 C1100,490 560,270 -100,30"/>
+        <path class="wl" style="stroke:rgba(58,134,255,0.07)" d="M1540,470 C1100,440 560,220 -100,-20"/>
+      </g>
+    </svg>
+  </div>
   <div class="features-outer">
     <div class="features-header" data-animate>
       <span class="section-tag">主な機能</span>
