@@ -2,43 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- KO (기본) -->
   <url>
     <loc>https://starseeker07.github.io/nerdescape-landing/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://starseeker07.github.io/nerdescape-landing/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://starseeker07.github.io/nerdescape-landing/en/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://starseeker07.github.io/nerdescape-landing/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko"      href="https://starseeker07.github.io/nerdescape-landing/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://starseeker07.github.io/nerdescape-landing/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja"      href="https://starseeker07.github.io/nerdescape-landing/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://starseeker07.github.io/nerdescape-landing/"/>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- EN -->
   <url>
     <loc>https://starseeker07.github.io/nerdescape-landing/en/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://starseeker07.github.io/nerdescape-landing/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://starseeker07.github.io/nerdescape-landing/en/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://starseeker07.github.io/nerdescape-landing/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko"      href="https://starseeker07.github.io/nerdescape-landing/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://starseeker07.github.io/nerdescape-landing/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja"      href="https://starseeker07.github.io/nerdescape-landing/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://starseeker07.github.io/nerdescape-landing/"/>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- JA -->
   <url>
     <loc>https://starseeker07.github.io/nerdescape-landing/ja/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://starseeker07.github.io/nerdescape-landing/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://starseeker07.github.io/nerdescape-landing/en/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://starseeker07.github.io/nerdescape-landing/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko"      href="https://starseeker07.github.io/nerdescape-landing/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://starseeker07.github.io/nerdescape-landing/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja"      href="https://starseeker07.github.io/nerdescape-landing/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://starseeker07.github.io/nerdescape-landing/"/>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- 법적 문서 (noindex지만 sitemap 포함 — 크롤러 접근 허용) -->
   <url>
     <loc>https://starseeker07.github.io/nerdescape-landing/privacy.html</loc>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.2</priority>
   </url>
 
   <url>
     <loc>https://starseeker07.github.io/nerdescape-landing/terms.html</loc>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://starseeker07.github.io/nerdescape-landing/en/privacy.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://starseeker07.github.io/nerdescape-landing/en/terms.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://starseeker07.github.io/nerdescape-landing/ja/privacy.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://starseeker07.github.io/nerdescape-landing/ja/terms.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 
 </urlset>
