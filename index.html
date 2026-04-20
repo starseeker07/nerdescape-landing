@@ -134,7 +134,32 @@
     .lang-toggle a:hover { color: var(--text); background: rgba(255,255,255,0.07); }
     .lang-toggle .active { color: var(--text); font-weight: 600; }
     .lang-sep { color: rgba(255,255,255,0.15); padding: 0 2px; font-size: 11px; }
-    .lang-select { display: none; }
+
+    /* ─── LANG DROPDOWN (mobile) ─── */
+    .lang-dropdown { position: relative; display: none; }
+    .lang-dropdown-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      font-family: var(--font-pre); font-size: 13px; font-weight: 500;
+      padding: 7px 12px; border-radius: 8px;
+      cursor: pointer; outline: none; white-space: nowrap;
+    }
+    .lang-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 8px); right: 0;
+      background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; overflow: hidden; min-width: 110px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6); z-index: 200;
+    }
+    .lang-dropdown-menu.open { display: block; }
+    .lang-dropdown-item {
+      display: block; padding: 11px 16px;
+      font-size: 14px; color: var(--text-muted);
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-dropdown-item:hover { background: rgba(255,255,255,0.07); color: var(--text); }
+    .lang-dropdown-item.active { color: var(--accent); font-weight: 600; }
 
     /* ─── SECTION NAV ─── */
     .nav-section-links {
@@ -823,16 +848,7 @@
       .nav-section-links { display: none; }
       .lang-toggle { display: none; }
       .nav-right { gap: 10px; }
-      .lang-select {
-        display: block;
-        appearance: none; -webkit-appearance: none;
-        background: rgba(255,255,255,0.08) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 8px center;
-        border: 1px solid rgba(255,255,255,0.12);
-        color: var(--text); font-family: var(--font-pre);
-        font-size: 13px; font-weight: 500;
-        padding: 6px 26px 6px 10px;
-        border-radius: 7px; cursor: pointer; outline: none;
-      }
+      .lang-dropdown { display: block; }
       .hero { padding-top: 56px; }
 
       /* Hero */
@@ -978,11 +994,14 @@
       <span class="lang-sep">|</span>
       <a href="/nerdescape-landing/ja/">日本語</a>
     </div>
-    <select class="lang-select" onchange="location.href=this.value" aria-label="언어 선택">
-      <option value="/nerdescape-landing/" selected>한국어</option>
-      <option value="/nerdescape-landing/en/">English</option>
-      <option value="/nerdescape-landing/ja/">日本語</option>
-    </select>
+    <div class="lang-dropdown">
+      <button class="lang-dropdown-btn" onclick="toggleLangDropdown(event)">한국어 <iconify-icon icon="solar:alt-arrow-down-bold" style="font-size:11px; opacity:0.7"></iconify-icon></button>
+      <div class="lang-dropdown-menu" id="langDropdownMenu">
+        <a href="/nerdescape-landing/" class="lang-dropdown-item active">한국어</a>
+        <a href="/nerdescape-landing/en/" class="lang-dropdown-item">English</a>
+        <a href="/nerdescape-landing/ja/" class="lang-dropdown-item">日本語</a>
+      </div>
+    </div>
     <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
        class="btn-nav" target="_blank" rel="noopener">
       <iconify-icon icon="solar:smartphone-bold" style="font-size:15px"></iconify-icon>
@@ -1300,6 +1319,10 @@
     var el = document.getElementById('contact-email');
     if (el) el.textContent = u + '\x40' + d;
   })();
+
+  // Lang dropdown
+  function toggleLangDropdown(e) { e.stopPropagation(); document.getElementById('langDropdownMenu').classList.toggle('open'); }
+  document.addEventListener('click', function() { var m = document.getElementById('langDropdownMenu'); if (m) m.classList.remove('open'); });
 
   // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
