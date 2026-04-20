@@ -68,6 +68,7 @@
     .lang-toggle a:hover { color: var(--text); background: rgba(255,255,255,0.07); }
     .lang-toggle .active { color: var(--text); font-weight: 600; }
     .lang-sep { color: rgba(255,255,255,0.15); padding: 0 2px; font-size: 11px; }
+    .lang-select { display: none; }
     .btn-nav { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--accent), var(--accent-end)); color: #fff; font-family: var(--font-pre); font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; }
     .btn-nav:hover { opacity: 0.85; transform: translateY(-1px); }
 
@@ -204,6 +205,18 @@
       .nav { padding: 0 20px; height: 56px; }
       .btn-nav .btn-nav-text { display: none; }
       .nav-section-links { display: none; }
+      .lang-toggle { display: none; }
+      .nav-right { gap: 10px; }
+      .lang-select {
+        display: block;
+        appearance: none; -webkit-appearance: none;
+        background: rgba(255,255,255,0.08) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 8px center;
+        border: 1px solid rgba(255,255,255,0.12);
+        color: var(--text); font-family: var(--font-pre);
+        font-size: 13px; font-weight: 500;
+        padding: 6px 26px 6px 10px;
+        border-radius: 7px; cursor: pointer; outline: none;
+      }
       .hero { padding-top: 56px; min-height: 100svh; }
       .hero-left { width: 100%; padding: 72px 24px 56px; justify-content: flex-end; min-height: 100svh; z-index: 2; }
       .hero-app-name { font-size: 80px; letter-spacing: -2px; }
@@ -293,6 +306,11 @@
       <span class="lang-sep">|</span>
       <span class="active">日本語</span>
     </div>
+    <select class="lang-select" onchange="location.href=this.value" aria-label="言語選択">
+      <option value="/nerdescape-landing/">한국어</option>
+      <option value="/nerdescape-landing/en/">English</option>
+      <option value="/nerdescape-landing/ja/" selected>日本語</option>
+    </select>
     <a href="https://play.google.com/store/apps/details?id=com.kukuDev.nerdescape"
        class="btn-nav" target="_blank" rel="noopener">
       <iconify-icon icon="solar:smartphone-bold" style="font-size:15px"></iconify-icon>
