@@ -29,11 +29,21 @@
     p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.8; }
     ul { padding-left: 22px; margin-bottom: 16px; }
     li { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.75; }
-    .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 48px; }
-    .footer-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 56px 80px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
     .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 26px; }
+    .footer-lang { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+    .footer-lang a { color: var(--text-muted); padding: 4px 8px; border-radius: 5px; transition: color 0.2s; }
+    .footer-lang a:hover { color: var(--text); }
+    .footer-lang .active { color: var(--text); font-weight: 600; padding: 4px 8px; }
+    .footer-lang .sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+    .footer-links { display: flex; gap: 24px; font-size: 13px; margin-bottom: 28px; }
+    .footer-links a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-biz { font-size: 12px; color: var(--text-subtle); line-height: 2; padding-top: 24px; border-top: 1px solid var(--border); margin-bottom: 20px; }
     .footer-copy { font-size: 12px; color: var(--text-subtle); }
-    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 20px 80px; } h1 { font-size: 26px; } .footer { padding: 32px 20px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
+    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 20px 80px; } h1 { font-size: 26px; } .footer { padding: 36px 20px; } .footer-top { flex-direction: column; align-items: flex-start; gap: 16px; } .footer-links { flex-wrap: wrap; gap: 16px; } .footer-biz { font-size: 11px; } }
   </style>
 </head>
 <body>
@@ -46,7 +56,7 @@
 <div class="content">
   <h1>📖 서비스 이용약관</h1>
   <!-- TODO: 출시일 확정 후 날짜 업데이트 -->
-  <p class="meta">최종 업데이트: 2026년 &nbsp;&nbsp;|&nbsp;&nbsp; 시행일: 2026년</p>
+  <p class="meta">최종 업데이트: 2026년 4월 24일 &nbsp;&nbsp;|&nbsp;&nbsp; 시행일: 2026년 4월 24일</p>
 
   <div class="intro">
     본 이용약관("약관")은 코디체크 모바일 애플리케이션("앱" 또는 "서비스")의 사용에 적용됩니다. 본 약관은 1인 개발자 kukuDev("운영자")와 귀하("사용자" 또는 "귀하") 간에 법적 구속력을 갖는 계약을 형성합니다. 본 서비스를 사용함으로써 귀하는 본 약관을 읽고 이해했으며 동의함을 인정합니다. 본 약관에 동의하지 않는 경우, 본 서비스에 접속하거나 사용하지 마십시오.
@@ -126,13 +136,40 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <span class="footer-logo"><span class="hi">Codi</span>Check</span>
-    <span class="footer-copy">© 2026 CodiCheck. All rights reserved.</span>
+    <div class="footer-top">
+      <span class="footer-logo"><span class="hi">Codi</span>Check</span>
+      <div class="footer-lang">
+        <span class="active">한국어</span>
+        <span class="sep">|</span>
+        <a href="/nerdescape-landing/en/terms.html">English</a>
+        <span class="sep">|</span>
+        <a href="/nerdescape-landing/ja/terms.html">日本語</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="/nerdescape-landing/privacy.html">개인정보처리방침</a>
+      <a href="/nerdescape-landing/terms.html">이용약관</a>
+    </div>
+    <div class="footer-biz">
+      상호명: 쿠쿠데브(kukuDev) &nbsp;|&nbsp; 대표자: 오재석 &nbsp;|&nbsp; 사업자등록번호: 390-68-00863<br>
+      통신판매업 신고번호: 제0000-서울OO-0000호<br>
+      주소: 인천광역시 연수구 용담로 111, 6층 6649호<br>
+      이메일: <span id="contact-email-footer"></span>
+    </div>
+    <p class="footer-copy">© 2026 CodiCheck. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-  document.getElementById('contact-email').textContent = ['orion400000', 'gmail.com'].join('@');
+  (function() {
+    var u = '\x6f\x72\x69\x6f\x6e\x34\x30\x30\x30\x30\x30';
+    var d = '\x67\x6d\x61\x69\x6c\x2e\x63\x6f\x6d';
+    var email = u + '\x40' + d;
+    var el = document.getElementById('contact-email');
+    if (el) el.textContent = email;
+    var el2 = document.getElementById('contact-email-footer');
+    if (el2) el2.textContent = email;
+  })();
 </script>
 </body>
 </html>

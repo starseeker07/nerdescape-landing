@@ -34,11 +34,21 @@
     th { background: rgba(255,255,255,0.06); color: var(--text); font-weight: 600; padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
     td { padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); vertical-align: top; line-height: 1.65; }
     tr:last-child td { border-bottom: none; }
-    .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 48px; }
-    .footer-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 56px 80px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
     .footer-logo { font-family: var(--font-lt); font-style: italic; font-size: 26px; }
+    .footer-lang { display: flex; align-items: center; gap: 4px; font-size: 13px; }
+    .footer-lang a { color: var(--text-muted); padding: 4px 8px; border-radius: 5px; transition: color 0.2s; }
+    .footer-lang a:hover { color: var(--text); }
+    .footer-lang .active { color: var(--text); font-weight: 600; padding: 4px 8px; }
+    .footer-lang .sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+    .footer-links { display: flex; gap: 24px; font-size: 13px; margin-bottom: 28px; }
+    .footer-links a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-biz { font-size: 12px; color: var(--text-subtle); line-height: 2; padding-top: 24px; border-top: 1px solid var(--border); margin-bottom: 20px; }
     .footer-copy { font-size: 12px; color: var(--text-subtle); }
-    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 20px 80px; } h1 { font-size: 26px; } .footer { padding: 32px 20px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; } }
+    @media (max-width: 768px) { .nav { padding: 0 20px; } .content { padding: 48px 20px 80px; } h1 { font-size: 26px; } .footer { padding: 36px 20px; } .footer-top { flex-direction: column; align-items: flex-start; gap: 16px; } .footer-links { flex-wrap: wrap; gap: 16px; } .footer-biz { font-size: 11px; } }
   </style>
 </head>
 <body>
@@ -51,7 +61,7 @@
 <div class="content">
   <h1>🔒 プライバシーポリシー</h1>
   <!-- TODO: リリース日確定後に日付を更新 -->
-  <p class="meta">最終更新日: 2026年 &nbsp;&nbsp;|&nbsp;&nbsp; 施行日: 2026年</p>
+  <p class="meta">最終更新日: 2026年4月24日 &nbsp;&nbsp;|&nbsp;&nbsp; 施行日: 2026年4月24日</p>
 
   <div class="intro">
     個人開発者であるkukuDev（以下「運営者」）は、「コーデチェック (CodiCheck)」モバイルアプリケーション（以下「本アプリ」または「本サービス」）のユーザー（以下「お客様」）のプライバシー保護を非常に重要視しています。本プライバシーポリシーは、私がお客様の情報を収集、使用、公開、および保護する方法について説明します。本サービスを利用することにより、お客様は本プライバシーポリシーに記載されている取り扱いに同意したものとみなされます。
@@ -146,13 +156,40 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <span class="footer-logo"><span class="hi">Codi</span>Check</span>
-    <span class="footer-copy">© 2026 CodiCheck. All rights reserved.</span>
+    <div class="footer-top">
+      <span class="footer-logo"><span class="hi">Codi</span>Check</span>
+      <div class="footer-lang">
+        <a href="/nerdescape-landing/privacy.html">한국어</a>
+        <span class="sep">|</span>
+        <a href="/nerdescape-landing/en/privacy.html">English</a>
+        <span class="sep">|</span>
+        <span class="active">日本語</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="/nerdescape-landing/ja/privacy.html">プライバシーポリシー</a>
+      <a href="/nerdescape-landing/ja/terms.html">利用規約</a>
+    </div>
+    <div class="footer-biz">
+      商号: kukuDev &nbsp;|&nbsp; 代表者: オ・ジェソク &nbsp;|&nbsp; 事業者登録番号: 390-68-00863<br>
+      通信販売業申告番号: 제0000-서울OO-0000호<br>
+      所在地: 韓国仁川市延寿区龍潭路111 6階6649号<br>
+      メール: <span id="contact-email-footer"></span>
+    </div>
+    <p class="footer-copy">© 2026 CodiCheck. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-  document.getElementById('contact-email').textContent = ['orion400000', 'gmail.com'].join('@');
+  (function() {
+    var u = '\x6f\x72\x69\x6f\x6e\x34\x30\x30\x30\x30\x30';
+    var d = '\x67\x6d\x61\x69\x6c\x2e\x63\x6f\x6d';
+    var email = u + '\x40' + d;
+    var el = document.getElementById('contact-email');
+    if (el) el.textContent = email;
+    var el2 = document.getElementById('contact-email-footer');
+    if (el2) el2.textContent = email;
+  })();
 </script>
 </body>
 </html>
